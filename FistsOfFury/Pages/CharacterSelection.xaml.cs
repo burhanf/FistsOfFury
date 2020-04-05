@@ -31,6 +31,9 @@ namespace FistsOfFury.Pages
 
             //call to populate characters
             PopulateCharacters();
+
+            //save all info
+            NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         //populate character list
@@ -83,6 +86,12 @@ namespace FistsOfFury.Pages
             //todo if conditions are met, make objects of USER that contains a fighter instance of each character
             //fighter for player1 must use images that face right
             //fighter for player2 must use images that face left
+        }
+
+        private void ReturnToMain_OnClick(object sender, RoutedEventArgs e)
+        {
+            //goes back to home page
+            this.Frame.GoBack();
         }
     }
 }

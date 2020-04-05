@@ -8,7 +8,15 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <!--By Burhan-->
+    <StackPanel>
+        <Image Margin="30"
+               Width="1000" Source="../Assets/title.png"/>
 
-    </Grid>
+        <Button Margin="100" HorizontalAlignment="Center"
+                x:Name="PlayButton"
+                Click="PlayButton_OnClick"
+                Width="500" FontSize="50" Content="Play"/>
+
+    </StackPanel>
 </Page>

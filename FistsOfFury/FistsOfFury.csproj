@@ -143,6 +143,7 @@
     <Content Include="Assets\Characters\ShaoKahn\skcharacter.PNG" />
     <Content Include="Assets\Characters\SubZero\szcharacter.PNG" />
     <Content Include="Assets\selectionbackground.PNG" />
+    <Content Include="Assets\title.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
