@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Battle.cs" />
     <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\FightStats.cs" />
