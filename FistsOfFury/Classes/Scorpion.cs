@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace FistsOfFury.Classes
 {
@@ -12,6 +14,10 @@ namespace FistsOfFury.Classes
         public Scorpion()
         {
             Name = "Scorpion";
+
+            //set character icon
+            IconImage = new Image();
+            IconImage.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/scharacter.PNG", UriKind.RelativeOrAbsolute));
         }
 
         public override void BonusAttack(Fighter opponent)

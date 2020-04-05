@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="FistsOfFury.Pages.CharacterSelection"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FistsOfFury.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:classes="using:FistsOfFury.Classes"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Page.Resources>
+        <!--Style for character names-->
+        <Style x:Key="CharacterNameStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <!--<Setter Property="FontFamily" Value="Bahnschrift"/>-->
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+        <!--Style for confirmation button-->
+        <Style x:Key="ConfirmButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Content" Value="Confirm selections"/>
+        </Style>
+    </Page.Resources>
+
+    <!--By Burhan-->
+    <StackPanel>
+        <!--Brick pixelated background-->
+        <StackPanel.Background>
+            <ImageBrush ImageSource="../Assets/selectionbackground.PNG"/>
+        </StackPanel.Background>
+
+        <Border>
+
+        </Border>
+        <TextBlock Foreground="Red" FontSize="100"
+                   Margin="30"
+                   HorizontalAlignment="Center" Text="SELECT A FIGHTER" 
+                   FontFamily="Mistral" FontWeight="Normal"  />
+
+        <!--Player 1 and Player 2 selections housed in a StackPanel-->
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+
+            <!--Player 1 ListView-->
+            <StackPanel Margin="70">
+                <TextBox x:Name="Player1Name" FontSize="30" PlaceholderText="Player 1 Name:"/>
+                <ListView x:Name="Player1Select">
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate x:DataType="classes:Fighter">
+
+                            <!--StackPanel for the image and text to appear side by side-->
+                            <StackPanel Orientation="Horizontal" Padding="20">
+                                <Border BorderThickness="3" BorderBrush="Black">
+                                    <Image Stretch="Fill" Height="100" Width="100" Source="{x:Bind IconImage.Source}"/>
+                                </Border>
+
+
+                                <StackPanel Padding="30" VerticalAlignment="Center">
+                                    <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind Name}"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!--Button to confirm-->
+                <!--<Button x:Name="Player1Confirmation" Style="{StaticResource ConfirmButtonStyle}"/>-->
+            </StackPanel>
+
+            <!--Player 2 ListView-->
+            <StackPanel Margin="70">
+                <TextBox x:Name="Player2Name" FontSize="30" PlaceholderText="Player 2 Name:"/>
+                <ListView x:Name="Player2Select">
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate x:DataType="classes:Fighter">
+
+                            <StackPanel Orientation="Horizontal" Padding="20">
+                                <Border BorderThickness="3" BorderBrush="Black">
+                                    <Image Stretch="Fill" Height="100" Width="100" Source="{x:Bind IconImage.Source}"/>
+                                </Border>
+
+                                <StackPanel Padding="30" VerticalAlignment="Center">
+                                    <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind Name}"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--Button to confirm-->
+                <!--<Button x:Name="Player2Confirmation" Style="{StaticResource ConfirmButtonStyle}"/>-->
+            </StackPanel>
+        </StackPanel>
+        <!--Button to confirm-->
+        <Button Click="ConfirmCharacterButton_OnClick" x:Name="ConfirmCharacterButton" Style="{StaticResource ConfirmButtonStyle}"/>
+    </StackPanel>
+</Page>

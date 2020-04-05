@@ -125,6 +125,9 @@
     <Compile Include="Classes\Scorpion.cs" />
     <Compile Include="Classes\ShaoKahn.cs" />
     <Compile Include="Classes\SubZero.cs" />
+    <Compile Include="Pages\CharacterSelection.xaml.cs">
+      <DependentUpon>CharacterSelection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Characters\Scorpion\scharacter.PNG" />
+    <Content Include="Assets\Characters\ShaoKahn\skcharacter.PNG" />
+    <Content Include="Assets\Characters\SubZero\szcharacter.PNG" />
+    <Content Include="Assets\selectionbackground.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -150,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Pages\CharacterSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

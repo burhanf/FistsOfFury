@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace FistsOfFury.Classes
 {
@@ -17,6 +18,9 @@ namespace FistsOfFury.Classes
 
         //stats
         public FightStats PlayerStats { get; set; }
+
+        //images
+        public Image IconImage { get; set; }
 
         //ctor
         public Fighter()
