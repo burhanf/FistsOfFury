@@ -23,6 +23,7 @@
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="280"/>
         </Style>
     </Page.Resources>
 
@@ -43,8 +44,8 @@
 
             <!--Player 1 ListView-->
             <StackPanel Margin="70">
-                <TextBox x:Name="Player1Name" FontSize="30" PlaceholderText="Player 1 Name:"/>
-                <ListView x:Name="Player1Select">
+                <TextBox x:Name="Player1NameTextBlock" FontSize="30" PlaceholderText="Player 1 Name:"/>
+                <ListView x:Name="Player1ListView">
                     <ListView.ItemTemplate>
 
                         <DataTemplate x:DataType="classes:Fighter">
@@ -71,8 +72,8 @@
 
             <!--Player 2 ListView-->
             <StackPanel Margin="70">
-                <TextBox x:Name="Player2Name" FontSize="30" PlaceholderText="Player 2 Name:"/>
-                <ListView x:Name="Player2Select">
+                <TextBox x:Name="Player2NameTextBlock" FontSize="30" PlaceholderText="Player 2 Name:"/>
+                <ListView x:Name="Player2ListView">
                     <ListView.ItemTemplate>
 
                         <DataTemplate x:DataType="classes:Fighter">
