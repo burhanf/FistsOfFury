@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FistsOfFury.Classes
 {
-    class Dice
+    public class Dice
     {
         //By Burhan
         //methods

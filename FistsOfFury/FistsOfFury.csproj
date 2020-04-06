@@ -119,10 +119,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\Battle.cs" />
     <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\FightStats.cs" />
+    <Compile Include="Classes\Match.cs" />
     <Compile Include="Classes\Scorpion.cs" />
     <Compile Include="Classes\ShaoKahn.cs" />
     <Compile Include="Classes\SubZero.cs" />
@@ -171,6 +173,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="MongoDB.Bson">
+      <Version>2.10.2</Version>
+    </PackageReference>
+    <PackageReference Include="MongoDB.Driver">
+      <Version>2.10.2</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

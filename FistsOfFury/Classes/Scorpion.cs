@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace FistsOfFury.Classes
 {
     //By Burhan
-    class Scorpion : Fighter
+    public class Scorpion : Fighter
     {
         public Scorpion()
         {
