@@ -36,6 +36,7 @@
 
             <Button 
                     x:Name="PlayButton"
+                    Click="PlayButton_OnClick"
                     Content="Play"
                     Style="{StaticResource ButtonsStyle}"/>
 
@@ -46,7 +47,6 @@
 
             <Button 
                     x:Name="HistoryButton"
-                    Click="PlayButton_OnClick"
                     Style="{StaticResource ButtonsStyle}"
                     Content="View Player History"/>
         </StackPanel>
