@@ -31,6 +31,9 @@ namespace FistsOfFury.Pages
 
             //call to populate characters
             PopulateCharacters();
+
+            //save all info
+            NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         //populate character list
@@ -49,32 +52,32 @@ namespace FistsOfFury.Pages
 
             foreach (var fighter in fighters)
             {
-                Player1Select.Items.Add(fighter);
-                Player2Select.Items.Add(fighter);
+                Player1ListView.Items.Add(fighter);
+                Player2ListView.Items.Add(fighter);
             }
         }
 
         private void ConfirmCharacterButton_OnClick(object sender, RoutedEventArgs e)
         {
             //check if name is entered for player1, player2
-            if (string.IsNullOrEmpty(Player1Name.Text))
+            if (string.IsNullOrEmpty(Player1NameTextBlock.Text))
             {
                 MessageDialog message = new MessageDialog("Player 1 must enter a username");
                 message.ShowAsync();
             }
-            else if (string.IsNullOrEmpty(Player2Name.Text))
+            else if (string.IsNullOrEmpty(Player2NameTextBlock.Text))
             {
                 MessageDialog message = new MessageDialog("Player 2 must enter a username");
                 message.ShowAsync();
             }
 
             //check if a character choice is selected for player1, player2
-            else if (Player1Select.SelectedItem == null)
+            else if (Player1ListView.SelectedItem == null)
             {
                 MessageDialog message = new MessageDialog("Player 1 must choose a character");
                 message.ShowAsync();
             }
-            else if (Player2Select.SelectedItem == null)
+            else if (Player2ListView.SelectedItem == null)
             {
                 MessageDialog message = new MessageDialog("Player 2 must choose a character");
                 message.ShowAsync();
@@ -83,6 +86,12 @@ namespace FistsOfFury.Pages
             //todo if conditions are met, make objects of USER that contains a fighter instance of each character
             //fighter for player1 must use images that face right
             //fighter for player2 must use images that face left
+        }
+
+        private void ReturnToMain_OnClick(object sender, RoutedEventArgs e)
+        {
+            //goes back to home page
+            this.Frame.GoBack();
         }
     }
 }

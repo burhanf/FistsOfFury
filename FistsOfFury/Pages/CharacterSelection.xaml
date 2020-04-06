@@ -23,7 +23,7 @@
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Content" Value="Confirm selections"/>
+            <Setter Property="Width" Value="280"/>
         </Style>
     </Page.Resources>
 
@@ -34,9 +34,6 @@
             <ImageBrush ImageSource="../Assets/selectionbackground.PNG"/>
         </StackPanel.Background>
 
-        <Border>
-
-        </Border>
         <TextBlock Foreground="Red" FontSize="100"
                    Margin="30"
                    HorizontalAlignment="Center" Text="SELECT A FIGHTER" 
@@ -47,8 +44,8 @@
 
             <!--Player 1 ListView-->
             <StackPanel Margin="70">
-                <TextBox x:Name="Player1Name" FontSize="30" PlaceholderText="Player 1 Name:"/>
-                <ListView x:Name="Player1Select">
+                <TextBox x:Name="Player1NameTextBlock" FontSize="30" PlaceholderText="Player 1 Name:"/>
+                <ListView x:Name="Player1ListView">
                     <ListView.ItemTemplate>
 
                         <DataTemplate x:DataType="classes:Fighter">
@@ -70,13 +67,13 @@
                 </ListView>
 
                 <!--Button to confirm-->
-                <!--<Button x:Name="Player1Confirmation" Style="{StaticResource ConfirmButtonStyle}"/>-->
+                <Button Click="ReturnToMain_OnClick" x:Name="ReturnToMain" Style="{StaticResource ConfirmButtonStyle}" Content="Back"/>
             </StackPanel>
 
             <!--Player 2 ListView-->
             <StackPanel Margin="70">
-                <TextBox x:Name="Player2Name" FontSize="30" PlaceholderText="Player 2 Name:"/>
-                <ListView x:Name="Player2Select">
+                <TextBox x:Name="Player2NameTextBlock" FontSize="30" PlaceholderText="Player 2 Name:"/>
+                <ListView x:Name="Player2ListView">
                     <ListView.ItemTemplate>
 
                         <DataTemplate x:DataType="classes:Fighter">
@@ -95,10 +92,15 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <!--Button to confirm-->
+                <Button Click="ConfirmCharacterButton_OnClick" x:Name="ConfirmCharacterButton" Style="{StaticResource ConfirmButtonStyle}" 
+                        Content="Confirm selections"/>
+
+                <!--Button to confirm-->
                 <!--<Button x:Name="Player2Confirmation" Style="{StaticResource ConfirmButtonStyle}"/>-->
             </StackPanel>
         </StackPanel>
         <!--Button to confirm-->
-        <Button Click="ConfirmCharacterButton_OnClick" x:Name="ConfirmCharacterButton" Style="{StaticResource ConfirmButtonStyle}"/>
+        <!--<Button Click="ConfirmCharacterButton_OnClick" x:Name="ConfirmCharacterButton" Style="{StaticResource ConfirmButtonStyle}" 
+                Content="Confirm selections"/>-->
     </StackPanel>
 </Page>

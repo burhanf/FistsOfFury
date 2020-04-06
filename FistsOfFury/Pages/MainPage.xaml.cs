@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -12,6 +13,12 @@ namespace FistsOfFury.Pages
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void PlayButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            //go to the character selection screen
+            this.Frame.Navigate(typeof(CharacterSelection));
         }
     }
 }

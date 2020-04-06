@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Database.cs" />
+    <Compile Include="Classes\Battle.cs" />
     <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\FightStats.cs" />
@@ -145,6 +146,7 @@
     <Content Include="Assets\Characters\ShaoKahn\skcharacter.PNG" />
     <Content Include="Assets\Characters\SubZero\szcharacter.PNG" />
     <Content Include="Assets\selectionbackground.PNG" />
+    <Content Include="Assets\title.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
