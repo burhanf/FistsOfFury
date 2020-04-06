@@ -9,12 +9,18 @@ namespace FistsOfFury.Classes
     public class Match
     {
         public List<FightStats> Stats { get; }
+        public List<Fighter> Fighters { get; set; }
 
         public Match()
         {
             Stats = new List<FightStats>();
 
             //burhans stuff for battle
+            Fighters = new List<Fighter>();
+        }
+
+        public void PerformBattle()
+        {
             //todo get actual fighters from CharacterSelection2 users made a fighter property
             Fighter Player1 = new Scorpion();
             Fighter Player2 = new SubZero();
@@ -46,5 +52,6 @@ namespace FistsOfFury.Classes
             }
 
         }
+    }
     }
 }
