@@ -99,6 +99,20 @@ namespace FistsOfFury.Classes
                         throw new Exception("Invalid choice");
                     }
             }
+
+        }
+        public void CheckIfGameIsOver()
+        {
+            if (Fighters[0].Health <= 0)
+            {
+                IsGameOver = true;
+                Winner = Fighters[1];
+            }
+            else if (Fighters[1].Health <= 0)
+            {
+                IsGameOver = true;
+                Winner = Fighters[0];
+            }
         }
 
     }
