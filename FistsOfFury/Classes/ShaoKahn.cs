@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace FistsOfFury.Classes
 {
     //By Burhan
-    class ShaoKahn : Fighter
+    public class ShaoKahn : Fighter
     {
         public ShaoKahn()
         {

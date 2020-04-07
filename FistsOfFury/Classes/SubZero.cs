@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace FistsOfFury.Classes
 {
     //By Burhan
-    class SubZero : Fighter
+    public class SubZero : Fighter
     {
         public SubZero()
         {

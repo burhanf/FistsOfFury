@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FistsOfFury.Classes
 {
     //By Burhan
-    class FightStats
+    public class FightStats
     {
         public double PunchesThrown { get; private set; }
         public double HighKicksThrown { get; private set; }
@@ -82,7 +82,5 @@ namespace FistsOfFury.Classes
         {
             LowKicksLanded++;
         }
-
     }
-
 }
