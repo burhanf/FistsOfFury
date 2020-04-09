@@ -44,8 +44,8 @@
 
             <!--Player 1 ListView-->
             <StackPanel Margin="70">
-                <TextBox x:Name="Player1NameTextBlock" FontSize="30" PlaceholderText="Player 1 Name:"/>
-                <ListView x:Name="Player1ListView">
+                <TextBox x:Name="PlayerOneNameTextBlock" FontSize="30" PlaceholderText="Player 1 Name:"/>
+                <ListView x:Name="PlayerOneListView">
                     <ListView.ItemTemplate>
 
                         <DataTemplate x:DataType="classes:Fighter">
@@ -72,8 +72,8 @@
 
             <!--Player 2 ListView-->
             <StackPanel Margin="70">
-                <TextBox x:Name="Player2NameTextBlock" FontSize="30" PlaceholderText="Player 2 Name:"/>
-                <ListView x:Name="Player2ListView">
+                <TextBox x:Name="PlayerTwoNameTextBlock" FontSize="30" PlaceholderText="Player 2 Name:"/>
+                <ListView x:Name="PlayerTwoListView">
                     <ListView.ItemTemplate>
 
                         <DataTemplate x:DataType="classes:Fighter">

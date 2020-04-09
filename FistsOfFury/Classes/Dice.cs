@@ -10,10 +10,11 @@ namespace FistsOfFury.Classes
     {
         //By Burhan
         //methods
-        public int Roll()
+        public static int Roll()
         {
             //use max as a range to roll die
             //generate ONE random die
+            //todo make it static/in class level
             Random randomNumberGenerator = new Random();
 
             int die1 = randomNumberGenerator.Next(1, 7);

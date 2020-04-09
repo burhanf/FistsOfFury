@@ -21,6 +21,9 @@ namespace FistsOfFury.Classes
 
         //images
         public Image IconImage { get; set; }
+        public bool IsPlayerOne { get; set; }
+        public Image Pose { get; set; }
+        public List<Image> ImageSet { get; set; }
 
         //ctor
         public Fighter()
@@ -28,6 +31,13 @@ namespace FistsOfFury.Classes
             Health = 100;
             PlayerStats = new FightStats();
             //Dice = new Dice();
+
+            Pose = new Image();
+            ImageSet = new List<Image>();
+            //ImageSet = _imageset;
+            PopulateImageSet();
+            //set to stand
+            Pose = ImageSet[0];
         }
 
         //methods
@@ -88,11 +98,16 @@ namespace FistsOfFury.Classes
             }
         }
         public abstract void BonusAttack(Fighter opponent);
-
+        public abstract void PopulateImageSet();
         public void UpdateHealth(int healthToRemove)
         {
             //removes health
             Health -= healthToRemove;
+        }
+        //choose attack
+        public void ChooseAttack()
+        {
+            //Battle.ChooseAttack();
         }
     }
 }

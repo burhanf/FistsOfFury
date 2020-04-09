@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using FistsOfFury.Classes;
+using MessageDialog = Windows.UI.Popups.MessageDialog;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -52,32 +53,32 @@ namespace FistsOfFury.Pages
 
             foreach (var fighter in fighters)
             {
-                Player1ListView.Items.Add(fighter);
-                Player2ListView.Items.Add(fighter);
+                PlayerOneListView.Items.Add(fighter);
+                PlayerTwoListView.Items.Add(fighter);
             }
         }
 
         private void ConfirmCharacterButton_OnClick(object sender, RoutedEventArgs e)
         {
             //check if name is entered for player1, player2
-            if (string.IsNullOrEmpty(Player1NameTextBlock.Text))
+            if (string.IsNullOrEmpty(PlayerOneNameTextBlock.Text))
             {
                 MessageDialog message = new MessageDialog("Player 1 must enter a username");
                 message.ShowAsync();
             }
-            else if (string.IsNullOrEmpty(Player2NameTextBlock.Text))
+            else if (string.IsNullOrEmpty(PlayerTwoNameTextBlock.Text))
             {
                 MessageDialog message = new MessageDialog("Player 2 must enter a username");
                 message.ShowAsync();
             }
 
             //check if a character choice is selected for player1, player2
-            else if (Player1ListView.SelectedItem == null)
+            else if (PlayerOneListView.SelectedItem == null)
             {
                 MessageDialog message = new MessageDialog("Player 1 must choose a character");
                 message.ShowAsync();
             }
-            else if (Player2ListView.SelectedItem == null)
+            else if (PlayerTwoListView.SelectedItem == null)
             {
                 MessageDialog message = new MessageDialog("Player 2 must choose a character");
                 message.ShowAsync();
@@ -86,12 +87,34 @@ namespace FistsOfFury.Pages
             //todo if conditions are met, make objects of USER that contains a fighter instance of each character
             //fighter for player1 must use images that face right
             //fighter for player2 must use images that face left
+            CreateFighters();
         }
 
         private void ReturnToMain_OnClick(object sender, RoutedEventArgs e)
         {
             //goes back to home page
             this.Frame.GoBack();
+        }
+
+        public void CreateFighters()
+        {
+            //todo must use username to create PLAYER/USER
+            //user will have a fighter for history purposes? OR
+            //can send the fighter to user after a battle
+
+            //todo new code, create objects from user selected
+            Fighter playerOne = PlayerOneListView.SelectedItem as Fighter;
+            playerOne.IsPlayerOne = true;
+
+            Fighter playerTwo = PlayerTwoListView.SelectedItem as Fighter;
+            playerTwo.IsPlayerOne = false;
+
+            //pass these into Match?
+            Match match = new Match(playerOne, playerTwo);
+
+            //todo send this match to FighterScreen?
+            //this.Frame.Navigate(typeof(FightPage), match);
+            
         }
     }
 }
