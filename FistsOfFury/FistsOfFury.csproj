@@ -119,17 +119,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Database.cs" />
+    <Compile Include="Classes\Database\Database.cs" />
     <Compile Include="Classes\Battle.cs" />
     <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\FightStats.cs" />
     <Compile Include="Classes\Match.cs" />
-    <Compile Include="Classes\Scorpion.cs" />
-    <Compile Include="Classes\ShaoKahn.cs" />
-    <Compile Include="Classes\SubZero.cs" />
+    <Compile Include="Classes\Characters\Scorpion.cs" />
+    <Compile Include="Classes\Characters\ShaoKahn.cs" />
+    <Compile Include="Classes\Characters\SubZero.cs" />
     <Compile Include="Pages\CharacterSelection.xaml.cs">
       <DependentUpon>CharacterSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leaderboard.xaml.cs">
+      <DependentUpon>Leaderboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -162,6 +165,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Pages\CharacterSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Leaderboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
