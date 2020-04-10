@@ -39,7 +39,76 @@ namespace FistsOfFury.Classes
             {
                 throw new Exception("Bonus is already used");
             }
+        }
+        public override void PopulateImageSet()
+        {
+            if (IsPlayerOne)
+            {
+                //add the player 1 images to the list
+                //TODO NEEDED IN EACH CHARACTER
+                Image standing = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player1Poses/SZStanding.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(standing);
 
+                Image punch = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player1Poses/SZPunch.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(punch);
+
+                Image highKick = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player1Poses/SZHighKick.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(highKick);
+
+                Image lowKick = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player1Poses/SZLowKick.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(lowKick);
+
+                Image bonus = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player1Poses/SZBonus.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(bonus);
+            }
+            else
+            {
+                //add the player 2 images to the list
+                Image standing = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player2Poses/SZStanding.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(standing);
+
+                Image punch = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player2Poses/SZStanding.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(punch);
+
+                Image highKick = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player2Poses/SZHighKick.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(highKick);
+
+                Image lowKick = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player2Poses/SZLowKick.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(lowKick);
+
+                Image bonus = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player2Poses/SZBonus.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(bonus);
+            }
         }
     }
 }

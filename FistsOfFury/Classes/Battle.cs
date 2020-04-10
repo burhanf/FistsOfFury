@@ -17,7 +17,7 @@ namespace FistsOfFury.Classes
         public Fighter Winner { get; set; }
 
         //todo die exists in here because its only needed for the battle
-        public Dice Dice { get; set; }
+        //public Dice Dice { get; set; }
 
         //ctor
         public Battle(Fighter player1, Fighter player2)
@@ -26,17 +26,15 @@ namespace FistsOfFury.Classes
             Fighters = new List<Fighter>();
             Fighters.Add(player1);
             Fighters.Add(player2);
-            Dice = new Dice();
+            //Dice = new Dice();
         }
 
         //methods
         //determine attacker
         //highest die roll wins
         public void DetermineAttacker()
-        {
-            //int playerOneRoll = 0;
-            //int playerTwoRoll = 0;
-
+        { 
+            //return these to output to screen
             int playerOneRoll = Dice.Roll();
             int playerTwoRoll = Dice.Roll();
 
@@ -53,12 +51,12 @@ namespace FistsOfFury.Classes
                 Opponent = Fighters[0];
             }
             //tie
-            //else
-            //{
-            //    //todo roll again, stack overflow?
-            //    //temp fix: First one that rolled it got it
-            //    DetermineAttacker();
-            //}
+            else
+            {
+                //todo 3.roll again, stack overflow?
+                //temp fix: First one that rolled it got it
+                DetermineAttacker();
+            }
         }
 
         public void ChooseAttack(int choice)
@@ -98,6 +96,21 @@ namespace FistsOfFury.Classes
                     {
                         throw new Exception("Invalid choice");
                     }
+                //check if health is depleted/game is over
+            }
+
+        }
+        public void CheckIfGameIsOver()
+        {
+            if (Fighters[0].Health <= 0)
+            {
+                IsGameOver = true;
+                Winner = Fighters[1];
+            }
+            else if (Fighters[1].Health <= 0)
+            {
+                IsGameOver = true;
+                Winner = Fighters[0];
             }
         }
 

@@ -119,20 +119,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Database\Database.cs" />
+    <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\Battle.cs" />
     <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\FightStats.cs" />
     <Compile Include="Classes\Match.cs" />
-    <Compile Include="Classes\Characters\Scorpion.cs" />
-    <Compile Include="Classes\Characters\ShaoKahn.cs" />
-    <Compile Include="Classes\Characters\SubZero.cs" />
+    <Compile Include="Classes\Scorpion.cs" />
+    <Compile Include="Classes\ShaoKahn.cs" />
+    <Compile Include="Classes\SubZero.cs" />
     <Compile Include="Pages\CharacterSelection.xaml.cs">
       <DependentUpon>CharacterSelection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Leaderboard.xaml.cs">
-      <DependentUpon>Leaderboard.xaml</DependentUpon>
+    <Compile Include="Pages\FightingPage.xaml.cs">
+      <DependentUpon>FightingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -145,8 +145,38 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Characters\Scorpion\Player1Poses\SBonus.png" />
+    <Content Include="Assets\Characters\Scorpion\Player1Poses\SHighKick.png" />
+    <Content Include="Assets\Characters\Scorpion\Player1Poses\SLowKick.png" />
+    <Content Include="Assets\Characters\Scorpion\Player1Poses\SPunch.png" />
+    <Content Include="Assets\Characters\Scorpion\Player1Poses\SStanding.png" />
+    <Content Include="Assets\Characters\Scorpion\Player2Poses\SBonus.png" />
+    <Content Include="Assets\Characters\Scorpion\Player2Poses\SHighKick.png" />
+    <Content Include="Assets\Characters\Scorpion\Player2Poses\SLowKick.png" />
+    <Content Include="Assets\Characters\Scorpion\Player2Poses\SPunch.png" />
+    <Content Include="Assets\Characters\Scorpion\Player2Poses\SStanding.png" />
     <Content Include="Assets\Characters\Scorpion\scharacter.PNG" />
+    <Content Include="Assets\Characters\ShaoKahn\Player1Poses\SKBonus.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player1Poses\SKHighKick.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player1Poses\SKLowKick.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player1Poses\SKPunch.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player1Poses\SKStanding.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player2Poses\SKBonus.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player2Poses\SKHighKick.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player2Poses\SKLowKick.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player2Poses\SKPunch.png" />
+    <Content Include="Assets\Characters\ShaoKahn\Player2Poses\SKStanding.png" />
     <Content Include="Assets\Characters\ShaoKahn\skcharacter.PNG" />
+    <Content Include="Assets\Characters\SubZero\Player1Poses\SZBonus.png" />
+    <Content Include="Assets\Characters\SubZero\Player1Poses\SZHighKick.png" />
+    <Content Include="Assets\Characters\SubZero\Player1Poses\SZLowKick.png" />
+    <Content Include="Assets\Characters\SubZero\Player1Poses\SZPunch.png" />
+    <Content Include="Assets\Characters\SubZero\Player1Poses\SZStanding.png" />
+    <Content Include="Assets\Characters\SubZero\Player2Poses\SZBonus.png" />
+    <Content Include="Assets\Characters\SubZero\Player2Poses\SZHighKick.png" />
+    <Content Include="Assets\Characters\SubZero\Player2Poses\SZLowKick.png" />
+    <Content Include="Assets\Characters\SubZero\Player2Poses\SZPunch.png" />
+    <Content Include="Assets\Characters\SubZero\Player2Poses\SZStanding.png" />
     <Content Include="Assets\Characters\SubZero\szcharacter.PNG" />
     <Content Include="Assets\selectionbackground.PNG" />
     <Content Include="Assets\title.png" />
@@ -168,7 +198,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Leaderboard.xaml">
+    <Page Include="Pages\FightingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +208,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="EasyMongo">
+      <Version>0.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>

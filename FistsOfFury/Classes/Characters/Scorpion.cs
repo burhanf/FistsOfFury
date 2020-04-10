@@ -41,8 +41,77 @@ namespace FistsOfFury.Classes
             {
                 throw new Exception("Bonus is already used");
             }
-
         }
 
+        public override void PopulateImageSet()
+        {
+            if (IsPlayerOne)
+            {
+                //add the player 1 images to the list
+                //TODO NEEDED IN EACH CHARACTER
+                Image standing = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player1Poses/SStanding.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(standing);
+
+                Image punch = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player1Poses/SPunch.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(punch);
+
+                Image highKick = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player1Poses/SHighKick.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(highKick);
+
+                Image lowKick = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player1Poses/SLowKick.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(lowKick);
+
+                Image bonus = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player1Poses/SBonus.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(bonus);
+            }
+            else
+            {
+                //add the player 2 images to the list
+                Image standing = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player2Poses/SStanding.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(standing);
+
+                Image punch = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player2Poses/SStanding.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(punch);
+
+                Image highKick = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player2Poses/SHighKick.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(highKick);
+
+                Image lowKick = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player2Poses/SLowKick.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(lowKick);
+
+                Image bonus = new Image
+                {
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player2Poses/SBonus.png", UriKind.RelativeOrAbsolute))
+                };
+                ImageSet.Add(bonus);
+            }
+        }
     }
 }
