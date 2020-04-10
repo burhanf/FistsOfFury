@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -21,25 +22,31 @@ namespace FistsOfFury.Classes
         }
         public override void BonusAttack(Fighter opponent)
         {
-            if (!IsBonusUsed)
-            {
-                //LowPunch
-                int land = DetermineIfLand();
+            //if (!IsBonusUsed)
+            IsBonusUsed = true;
+            //LowPunch
+            int land = DetermineIfLand();
+            Pose = ImageSet[4];
 
-                if (land >= 8)
-                {
-                    //gives health
-                    Health += 20;
-                    opponent.UpdateHealth(10);
-                    IsBonusUsed = true;
-                    //image change
-                }
+            if (land >= 8)
+            {
+                //gives health
+                Health += 20;
+                opponent.UpdateHealth(10);
+                //IsBonusUsed = true;
+                //image change
             }
             else
             {
-                throw new Exception("Bonus is already used");
+                //todo can i do this here?
+                MessageDialog dialog = new MessageDialog("Missed!");
+                dialog.ShowAsync();
             }
         }
+        //else
+        //{
+        //    throw new Exception("Bonus is already used");
+        //}
         public override void PopulateImageSet()
         {
             if (IsPlayerOne)
@@ -87,7 +94,7 @@ namespace FistsOfFury.Classes
 
                 Image punch = new Image
                 {
-                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player2Poses/SZStanding.png", UriKind.RelativeOrAbsolute))
+                    Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player2Poses/SZPunch.png", UriKind.RelativeOrAbsolute))
                 };
                 ImageSet.Add(punch);
 

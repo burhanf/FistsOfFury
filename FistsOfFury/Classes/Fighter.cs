@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
 namespace FistsOfFury.Classes
@@ -12,9 +13,7 @@ namespace FistsOfFury.Classes
     {
         public string Name { get; set; }
         public int Health { get; protected set; }
-        public int Points { get; protected set; }
-
-        public bool IsBonusUsed { get; set; }
+        public int Score { get; protected set; }
 
         //stats
         public FightStats PlayerStats { get; set; }
@@ -24,6 +23,8 @@ namespace FistsOfFury.Classes
         public bool IsPlayerOne { get; set; }
         public Image Pose { get; set; }
         public List<Image> ImageSet { get; set; }
+        //public bool IsAttackingPlayer { get; set; }
+        public bool IsBonusUsed { get; set; }
 
         //ctor
         public Fighter()
@@ -35,9 +36,6 @@ namespace FistsOfFury.Classes
             Pose = new Image();
             ImageSet = new List<Image>();
             //ImageSet = _imageset;
-            PopulateImageSet();
-            //set to stand
-            Pose = ImageSet[0];
         }
 
         //methods
@@ -54,38 +52,30 @@ namespace FistsOfFury.Classes
         {
             PlayerStats.UpdatePunchThrown();
             int land = DetermineIfLand();
+            Pose = ImageSet[1];
 
             //must be greater than 3 to land (70% chance)
             if (land >= 3)
             {
                 opponent.UpdateHealth(8);
                 PlayerStats.UpdatePunchLanded();
-                Points += 100;
+                Score += 100;
                 //image change
             }
-        }
-
-        public void LowKick(Fighter opponent)
-        {
-            PlayerStats.UpdateLowKicksThrown();
-            int land = DetermineIfLand();
-
-            //must be greater than 8 to land (50% chance)
-            if (land >= 5)
+            else
             {
-                opponent.UpdateHealth(12);
-                PlayerStats.UpdateLowKicksLanded();
-                Points += 200;
-                //image change
+                //todo can i do this here?
+                MessageDialog dialog = new MessageDialog("Missed!");
+                dialog.ShowAsync();
             }
         }
-
         public void HighKick(Fighter opponent)
         {
 
             PlayerStats.UpdateHighKicksThrown();
             int land = DetermineIfLand();
             //int land = 8;
+            Pose = ImageSet[2];
 
             //must be greater than 8 to land (30% chance)
             if (land >= 7)
@@ -93,10 +83,39 @@ namespace FistsOfFury.Classes
                 //should be opponent.UpdateHealth(16)
                 opponent.UpdateHealth(16);
                 PlayerStats.UpdateHighKicksLanded();
-                Points += 300;
+                Score += 300;
                 //image change
             }
+            else
+            {
+                //todo can i do this here?
+                MessageDialog dialog = new MessageDialog("Missed!");
+                dialog.ShowAsync();
+            }
         }
+        public void LowKick(Fighter opponent)
+        {
+            PlayerStats.UpdateLowKicksThrown();
+            int land = DetermineIfLand();
+            Pose = ImageSet[3];
+
+            //must be greater than 8 to land (50% chance)
+            if (land >= 5)
+            {
+                opponent.UpdateHealth(12);
+                PlayerStats.UpdateLowKicksLanded();
+                Score += 200;
+                //image change
+            }
+            else
+            {
+                //todo can i do this here?
+                MessageDialog dialog = new MessageDialog("Missed!");
+                dialog.ShowAsync();
+            }
+        }
+
+
         public abstract void BonusAttack(Fighter opponent);
         public abstract void PopulateImageSet();
         public void UpdateHealth(int healthToRemove)
@@ -108,6 +127,12 @@ namespace FistsOfFury.Classes
         public void ChooseAttack()
         {
             //Battle.ChooseAttack();
+        }
+
+        //set default pose 
+        public Image DefaultPose()
+        {
+            return ImageSet[0];
         }
     }
 }
