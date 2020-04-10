@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FistsOfFury.Classes
 {
@@ -16,16 +13,13 @@ namespace FistsOfFury.Classes
         public bool IsGameOver { get; private set; }
         public Fighter Winner { get; set; }
 
-        //todo die exists in here because its only needed for the battle
-        //public Dice Dice { get; set; }
-
         //ctor
         public Battle(Fighter player1, Fighter player2)
         {
             //initialize types
-            Fighters = new List<Fighter>();
-            Fighters.Add(player1);
-            Fighters.Add(player2);
+            Fighters = new List<Fighter> { player1, player2 };
+            //Fighters.Add(player1);
+            //Fighters.Add(player2);
             //Dice = new Dice();
             SetImages();
         }
@@ -36,7 +30,7 @@ namespace FistsOfFury.Classes
             {
                 //set images
                 fighter.PopulateImageSet();
-                        
+
                 //set to stand
                 fighter.Pose = fighter.ImageSet[0];
             }
@@ -45,7 +39,7 @@ namespace FistsOfFury.Classes
         //determine attacker
         //highest die roll wins
         public List<int> DetermineAttacker()
-        { 
+        {
             //return these to output to screen
             int playerOneRoll = Dice.Roll();
             int playerTwoRoll = Dice.Roll();
@@ -59,16 +53,12 @@ namespace FistsOfFury.Classes
                 //player 1 is attacker
                 Attacker = Fighters[0];
                 Opponent = Fighters[1];
-
-                //if the attacking player is player 1, use the correct image control
-                //Attacker.IsAttackingPlayer = true;
             }
             else if (playerTwoRoll > playerOneRoll)
             {
                 //player 2 is attacker
                 Attacker = Fighters[1];
                 Opponent = Fighters[0];
-                //Attacker.IsAttackingPlayer = false;
             }
             //tie
             else
@@ -91,22 +81,21 @@ namespace FistsOfFury.Classes
                 case 1:
                     {
                         //attacker chooses punch
-
                         Attacker.Punch(Opponent);
                         break;
                     }
-                //lowkick
+                //highkick
                 case 2:
-                    {
-                        //attacker chooses low kick
-                        Attacker.LowKick(Opponent);
-                        break;
-                    }
-                //high kick
-                case 3:
                     {
                         //attacker chooses high kick
                         Attacker.HighKick(Opponent);
+                        break;
+                    }
+                //low kick
+                case 3:
+                    {
+                        //attacker chooses low kick
+                        Attacker.LowKick(Opponent);
                         break;
                     }
                 //bonus

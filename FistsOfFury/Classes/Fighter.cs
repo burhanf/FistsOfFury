@@ -15,8 +15,6 @@ namespace FistsOfFury.Classes
         public int Health { get; protected set; }
         public int Score { get; protected set; }
 
-        //public bool IsBonusUsed { get; set; }
-
         //stats
         public FightStats PlayerStats { get; set; }
 
@@ -26,7 +24,7 @@ namespace FistsOfFury.Classes
         public Image Pose { get; set; }
         public List<Image> ImageSet { get; set; }
         //public bool IsAttackingPlayer { get; set; }
-        public  bool IsBonusUsed { get; set; }
+        public bool IsBonusUsed { get; set; }
 
         //ctor
         public Fighter()
@@ -71,29 +69,6 @@ namespace FistsOfFury.Classes
                 dialog.ShowAsync();
             }
         }
-
-        public void LowKick(Fighter opponent)
-        {
-            PlayerStats.UpdateLowKicksThrown();
-            int land = DetermineIfLand();
-            Pose = ImageSet[3];
-
-            //must be greater than 8 to land (50% chance)
-            if (land >= 5)
-            {
-                opponent.UpdateHealth(12);
-                PlayerStats.UpdateLowKicksLanded();
-                Score += 200;
-                //image change
-            }
-            else
-            {
-                //todo can i do this here?
-                MessageDialog dialog = new MessageDialog("Missed!");
-                dialog.ShowAsync();
-            }
-        }
-
         public void HighKick(Fighter opponent)
         {
 
@@ -118,6 +93,29 @@ namespace FistsOfFury.Classes
                 dialog.ShowAsync();
             }
         }
+        public void LowKick(Fighter opponent)
+        {
+            PlayerStats.UpdateLowKicksThrown();
+            int land = DetermineIfLand();
+            Pose = ImageSet[3];
+
+            //must be greater than 8 to land (50% chance)
+            if (land >= 5)
+            {
+                opponent.UpdateHealth(12);
+                PlayerStats.UpdateLowKicksLanded();
+                Score += 200;
+                //image change
+            }
+            else
+            {
+                //todo can i do this here?
+                MessageDialog dialog = new MessageDialog("Missed!");
+                dialog.ShowAsync();
+            }
+        }
+
+
         public abstract void BonusAttack(Fighter opponent);
         public abstract void PopulateImageSet();
         public void UpdateHealth(int healthToRemove)

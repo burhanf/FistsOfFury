@@ -46,10 +46,7 @@ namespace FistsOfFury.Pages
             ShaoKahn shaoKahn = new ShaoKahn();
 
             //create a list of fighters to easily add them to the list view
-            List<Fighter> fighters = new List<Fighter>();
-            fighters.Add(scorpion);
-            fighters.Add(subZero);
-            fighters.Add(shaoKahn);
+            List<Fighter> fighters = new List<Fighter>{scorpion, subZero, shaoKahn};
 
             foreach (var fighter in fighters)
             {

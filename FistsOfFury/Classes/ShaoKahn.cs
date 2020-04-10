@@ -25,6 +25,7 @@ namespace FistsOfFury.Classes
             //if (!IsBonusUsed)
             {
                 //Hammer
+                IsBonusUsed = true;
                 int land = DetermineIfLand();
                 Pose = ImageSet[4];
 

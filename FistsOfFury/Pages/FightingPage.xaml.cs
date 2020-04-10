@@ -51,19 +51,31 @@ namespace FistsOfFury.Pages
         }
         private async void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)
         {
-            //disable it so it cannot be pressed again
-            DetermineAttackerButton.IsEnabled = false;
+            //todo Where to display winner?
+            //check if theres a winner to display
+            if (Match.Battle.Winner != null)
+            {
+                MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.Name}!");
+                dialog.ShowAsync();
+                throw new Exception("Go to next page");
+            }
+            else
+            {
+                //disable it so it cannot be pressed again
+                DetermineAttackerButton.IsEnabled = false;
 
-            //call determine attack
-            List<int> dieResults = Match.Battle.DetermineAttacker();
+                //call determine attack
+                List<int> dieResults = Match.Battle.DetermineAttacker();
 
-            //set returned values from list to textblocks
-            AttackerTextBlock.Text = $"The attacker is {Match.Battle.Attacker.Name}";
-            PlayerOneSumTextBlock.Text = $"{dieResults[0]}";
-            PlayerTwoSumTextBlock.Text = $"{dieResults[1]}";
+                //set returned values from list to textblocks
+                AttackerTextBlock.Text = $"The attacker is {Match.Battle.Attacker.Name}";
+                PlayerOneSumTextBlock.Text = $"{dieResults[0]}";
+                PlayerTwoSumTextBlock.Text = $"{dieResults[1]}";
 
-            //enable the view attack button
-            AttackMenuButton.IsEnabled = true;
+                //enable the view attack button
+                AttackMenuButton.IsEnabled = true;
+            }
+            
         }
 
         //changes the appopriate image control
@@ -96,17 +108,12 @@ namespace FistsOfFury.Pages
                 //call attack(1)
                 Match.Battle.ChooseAttack(1);
                 ChangeImage(PlayerOneImage);
-                //wait and set back to default
-                //await Task.Delay(400);
-                //PlayerOneImage.Source = Match.Battle.Attacker.DefaultPose().Source;
             }
             else
             {
                 //call attack(1)
                 Match.Battle.ChooseAttack(1);
                 ChangeImage(PlayerTwoImage);
-                //wait and set back to default
-                //await Task.Delay(400);
             }
 
             //PlayerOneImage.Source = Match.Fighters[0].Pose.Source;
@@ -163,6 +170,10 @@ namespace FistsOfFury.Pages
             {
                 //let them know they can't use it
                 MessageDialog dialog = new MessageDialog("Bonus is already used! Cannot use again.");
+                dialog.ShowAsync();
+
+                //keep the same attack menu visible
+                AttackGrid.Visibility = Visibility.Visible;
             }
             else
             {
@@ -186,12 +197,27 @@ namespace FistsOfFury.Pages
         
         private void ChangeVisibility()
         {
+            //if the current screen is the die roll, change it to the attack screen, if not, make it die roll screen
             if (DieRollGrid.Visibility == Visibility.Visible)
             {
                 DieRollGrid.Visibility = Visibility.Collapsed;
                 AttackGrid.Visibility = Visibility.Visible;
                 //disable it so it cannot be pressed again
                 DetermineAttackerButton.IsEnabled = true;
+
+                //ont let bonus be used again FOR THAT PLAYER
+                if (Match.Battle.Fighters[0] == Match.Battle.Attacker && Match.Battle.Attacker.IsBonusUsed)
+                {
+                    BonusButton.IsEnabled = false;
+                }
+                else if (Match.Battle.Fighters[1] == Match.Battle.Attacker && Match.Battle.Attacker.IsBonusUsed)
+                {
+                    BonusButton.IsEnabled = false;
+                }
+                else
+                {
+                    BonusButton.IsEnabled = true;
+                }
             }
             else
             {
@@ -202,7 +228,6 @@ namespace FistsOfFury.Pages
                 PunchButton.IsEnabled = true;
                 HighKickButton.IsEnabled = true;
                 LowKickButton.IsEnabled = true;
-                BonusButton.IsEnabled = true;
             }
         }
 

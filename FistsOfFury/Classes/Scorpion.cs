@@ -24,9 +24,9 @@ namespace FistsOfFury.Classes
         public override void BonusAttack(Fighter opponent)
         {
             //if (!IsBonusUsed)
-            {
-                //Uppercut
-                int land = DetermineIfLand();
+            IsBonusUsed = true;
+            //Uppercut
+            int land = DetermineIfLand();
                 Pose = ImageSet[4];
 
                 if (land >= 8)
@@ -44,8 +44,7 @@ namespace FistsOfFury.Classes
                     MessageDialog dialog = new MessageDialog("Missed!");
                     dialog.ShowAsync();
                 }
-            }
-            //else
+                //else
             //{
             //    throw new Exception("Bonus is already used");
             //}

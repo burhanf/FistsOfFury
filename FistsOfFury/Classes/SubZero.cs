@@ -23,31 +23,30 @@ namespace FistsOfFury.Classes
         public override void BonusAttack(Fighter opponent)
         {
             //if (!IsBonusUsed)
-            {
-                //LowPunch
-                int land = DetermineIfLand();
-                Pose = ImageSet[4];
+            IsBonusUsed = true;
+            //LowPunch
+            int land = DetermineIfLand();
+            Pose = ImageSet[4];
 
-                if (land >= 8)
-                {
-                    //gives health
-                    Health += 20;
-                    opponent.UpdateHealth(10);
-                    //IsBonusUsed = true;
-                    //image change
-                }
-                else
-                {
-                    //todo can i do this here?
-                    MessageDialog dialog = new MessageDialog("Missed!");
-                    dialog.ShowAsync();
-                }
+            if (land >= 8)
+            {
+                //gives health
+                Health += 20;
+                opponent.UpdateHealth(10);
+                //IsBonusUsed = true;
+                //image change
             }
-            //else
-            //{
-            //    throw new Exception("Bonus is already used");
-            //}
+            else
+            {
+                //todo can i do this here?
+                MessageDialog dialog = new MessageDialog("Missed!");
+                dialog.ShowAsync();
+            }
         }
+        //else
+        //{
+        //    throw new Exception("Bonus is already used");
+        //}
         public override void PopulateImageSet()
         {
             if (IsPlayerOne)
