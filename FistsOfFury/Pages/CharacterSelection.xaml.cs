@@ -83,11 +83,14 @@ namespace FistsOfFury.Pages
                 MessageDialog message = new MessageDialog("Player 2 must choose a character");
                 message.ShowAsync();
             }
-
-            //todo if conditions are met, make objects of USER that contains a fighter instance of each character
-            //fighter for player1 must use images that face right
-            //fighter for player2 must use images that face left
-            CreateFighters();
+            else
+            {
+                //todo if conditions are met, make objects of USER that contains a fighter instance of each character
+                //fighter for player1 must use images that face right
+                //fighter for player2 must use images that face left
+                CreateFighters();
+            }
+            
         }
 
         private void ReturnToMain_OnClick(object sender, RoutedEventArgs e)
@@ -103,18 +106,18 @@ namespace FistsOfFury.Pages
             //can send the fighter to user after a battle
 
             //todo new code, create objects from user selected
-            Fighter playerOne = PlayerOneListView.SelectedItem as Fighter;
-            playerOne.IsPlayerOne = true;
+            Fighter fighterOne = PlayerOneListView.SelectedItem as Fighter;
+            fighterOne.IsPlayerOne = true;
 
-            Fighter playerTwo = PlayerTwoListView.SelectedItem as Fighter;
-            playerTwo.IsPlayerOne = false;
+            Fighter fighterTwo = PlayerTwoListView.SelectedItem as Fighter;
+            fighterTwo.IsPlayerOne = false;
 
-            //pass these into Match?
-            Match match = new Match(playerOne, playerTwo);
+            //send these to fighting apge where itll make a match in there
+            Match match = new Match(fighterOne, fighterTwo);
 
             //todo send this match to FighterScreen?
-            //this.Frame.Navigate(typeof(FightPage), match);
-            
+            this.Frame.Navigate(typeof(FightingPage), match);
+
         }
     }
 }
