@@ -60,12 +60,12 @@ namespace FistsOfFury.Classes
                 Attacker = Fighters[1];
                 Opponent = Fighters[0];
             }
-            //tie
+            //tie, goes to the previous attacker
             else
             {
                 //todo 3.roll again, stack overflow?
                 //temp fix: First one that rolled it got it
-                DetermineAttacker();
+                //DetermineAttacker();
             }
             List<int> sumList = new List<int>();
             sumList.Add(playerOneRoll);

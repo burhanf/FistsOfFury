@@ -27,7 +27,7 @@ namespace FistsOfFury.Pages
 
         private void LeaderboardButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Leaderboard), Database);
+            //this.Frame.Navigate(typeof(Leaderboard), Database);
         }
     }
 }
