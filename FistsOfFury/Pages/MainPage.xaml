@@ -42,6 +42,7 @@
 
             <Button 
                     x:Name="LeaderboardButton"
+                Click="LeaderboardButton_Click"
                     Style="{StaticResource ButtonsStyle}"
                     Content="View Leaderboard"/>
 
