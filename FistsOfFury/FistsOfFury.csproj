@@ -119,15 +119,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Database.cs" />
+    <Compile Include="Classes\Characters\Scorpion.cs" />
+    <Compile Include="Classes\Characters\ShaoKahn.cs" />
+    <Compile Include="Classes\Characters\SubZero.cs" />
     <Compile Include="Classes\Battle.cs" />
+    <Compile Include="Classes\Database\Database.cs" />
     <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\FightStats.cs" />
     <Compile Include="Classes\Match.cs" />
-    <Compile Include="Classes\Scorpion.cs" />
-    <Compile Include="Classes\ShaoKahn.cs" />
-    <Compile Include="Classes\SubZero.cs" />
     <Compile Include="Pages\CharacterSelection.xaml.cs">
       <DependentUpon>CharacterSelection.xaml</DependentUpon>
     </Compile>
