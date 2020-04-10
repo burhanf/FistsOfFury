@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel Margin="100">
-            <ListView x:Name="Leaderboard">
+            <ListView x:Name="standings">
                 <ListBoxItem></ListBoxItem>
             </ListView>
         </StackPanel>

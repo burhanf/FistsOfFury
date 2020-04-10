@@ -21,6 +21,11 @@ namespace FistsOfFury.Classes
             _db = _client.GetDatabase("Fists-Of-Fury");
             _leaderboard = _db.GetCollection<BsonDocument>("Leaderboard");
         }
+
+        private List<BsonDocument> SortIt()
+        {
+            return new List<BsonDocument>();
+        }
          
         public async void LogMatch(Match match)
         {

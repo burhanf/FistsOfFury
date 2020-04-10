@@ -134,6 +134,9 @@
     <Compile Include="Pages\FightingPage.xaml.cs">
       <DependentUpon>FightingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Leaderboard.xaml.cs">
+      <DependentUpon>Leaderboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
     <Page Include="Pages\FightingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Leaderboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
