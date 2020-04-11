@@ -57,7 +57,7 @@ namespace FistsOfFury.Pages
             {
                 MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.Name}!");
                 dialog.ShowAsync();
-                throw new Exception("Go to next page");
+                //throw new Exception("Go to next page");
             }
             else
             {

@@ -45,8 +45,8 @@ namespace FistsOfFury.Classes
             int playerTwoRoll = Dice.Roll();
 
             //reset the attacker and opponent
-            Attacker = null;
-            Opponent = null;
+            //Attacker = null;
+            //Opponent = null;
 
             if (playerOneRoll > playerTwoRoll)
             {
@@ -64,7 +64,7 @@ namespace FistsOfFury.Classes
             else
             {
                 //todo 3.roll again, stack overflow?
-                //temp fix: First one that rolled it got it
+                //todo: First one that rolled it got it
                 //DetermineAttacker();
             }
             List<int> sumList = new List<int>();

@@ -40,17 +40,26 @@ namespace FistsOfFury.Pages
         //populate character list
         public void PopulateCharacters()
         {
-            //instance of fighters
-            Scorpion scorpion = new Scorpion();
-            SubZero subZero = new SubZero();
-            ShaoKahn shaoKahn = new ShaoKahn();
+            //instance of fighters for player one
+            Scorpion scorpionPlayerOne = new Scorpion{IsPlayerOne = true};
+            SubZero subZeroPlayerOne = new SubZero { IsPlayerOne = true };
+            ShaoKahn shaoKahnPlayerOne = new ShaoKahn{ IsPlayerOne = true };
+            
+            //for player two
+            Scorpion scorpionPlayerTwo = new Scorpion{ IsPlayerOne = false };
+            SubZero subZeroPlayerTwo = new SubZero{ IsPlayerOne = false };
+            ShaoKahn shaoKahnPlayerTwo = new ShaoKahn{ IsPlayerOne = false };
 
             //create a list of fighters to easily add them to the list view
-            List<Fighter> fighters = new List<Fighter>{scorpion, subZero, shaoKahn};
+            List<Fighter> playerOneFighters = new List<Fighter>{scorpionPlayerOne, subZeroPlayerOne, shaoKahnPlayerOne};
+            List<Fighter> playerTwoFighters = new List<Fighter>{scorpionPlayerTwo, subZeroPlayerTwo, shaoKahnPlayerTwo};
 
-            foreach (var fighter in fighters)
+            foreach (var fighter in playerOneFighters)
             {
                 PlayerOneListView.Items.Add(fighter);
+            }
+            foreach (var fighter in playerTwoFighters)
+            {
                 PlayerTwoListView.Items.Add(fighter);
             }
         }
@@ -104,10 +113,10 @@ namespace FistsOfFury.Pages
 
             //todo new code, create objects from user selected
             Fighter fighterOne = PlayerOneListView.SelectedItem as Fighter;
-            fighterOne.IsPlayerOne = true;
+            //fighterOne.IsPlayerOne = true;
 
             Fighter fighterTwo = PlayerTwoListView.SelectedItem as Fighter;
-            fighterTwo.IsPlayerOne = false;
+            //fighterTwo.IsPlayerOne = false;
 
             //send these to fighting apge where itll make a match in there
             Match match = new Match(fighterOne, fighterTwo);

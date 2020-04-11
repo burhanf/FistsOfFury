@@ -114,8 +114,8 @@
             <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2" Grid.Column="0"  FontSize="40" Text="Choose an attack"/>
 
             <Button Background="LightGray" Grid.Row="0" Grid.Column="1" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Punch_OnClick" x:Name="PunchButton" Content="Punch: (70%) (+8 dmg) (+100 score)"/>
-            <Button Background="LightGray" Grid.Row="0" Grid.Column="2" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="HighKick_OnClick" x:Name="HighKickButton" Content="HighKick: (50%) (+12 dmg) (+200 score)"/>
-            <Button Background="LightGray" Grid.Row="1" Grid.Column="1" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="LowKick_OnClick"  x:Name="LowKickButton" Content="LowKick: (30%) (+16 dmg) (+300 score)"/>
+            <Button Background="LightGray" Grid.Row="0" Grid.Column="2" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="HighKick_OnClick" x:Name="HighKickButton" Content="HighKick: (30%) (+16 dmg) (+300 score)"/>
+            <Button Background="LightGray" Grid.Row="1" Grid.Column="1" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="LowKick_OnClick"  x:Name="LowKickButton" Content="LowKick: (50%) (+12 dmg) (+200 score)"/>
             
             <Button Background="LightGray" Grid.Row="1" 
                     Grid.Column="2" 

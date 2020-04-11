@@ -19,7 +19,7 @@ namespace FistsOfFury.Classes
             //burhans stuff for battle
             Fighters = new List<Fighter>{fighterOne, fighterTwo};
 
-            Battle = new Battle(Fighters[0], Fighters[1]);
+            Battle = new Battle(fighterOne, fighterTwo);
         }
     }
 }
