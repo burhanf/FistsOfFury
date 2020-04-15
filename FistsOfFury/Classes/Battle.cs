@@ -14,10 +14,11 @@ namespace FistsOfFury.Classes
         public Fighter Winner { get; set; }
 
         //ctor
-        public Battle(Fighter player1, Fighter player2)
+        public Battle(List<Fighter> fighterList)
         {
             //initialize types
-            Fighters = new List<Fighter> { player1, player2 };
+            Fighters = new List<Fighter>();
+            Fighters = fighterList;
             //Fighters.Add(player1);
             //Fighters.Add(player2);
             //Dice = new Dice();

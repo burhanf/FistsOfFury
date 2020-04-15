@@ -15,7 +15,7 @@ namespace FistsOfFury.Classes
         public Scorpion()
         {
             Name = "Scorpion";
-
+            Bio = "Scorpion is the leader of the Shirai-Ryu. His bonus move is an uppercut which gives 800 points and inflicts 10 damage.";
             //set character icon
             IconImage = new Image();
             IconImage.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/scharacter.PNG", UriKind.RelativeOrAbsolute));

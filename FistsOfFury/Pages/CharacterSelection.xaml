@@ -52,13 +52,14 @@
 
                             <!--StackPanel for the image and text to appear side by side-->
                             <StackPanel Orientation="Horizontal" Padding="20">
-                                <Border BorderThickness="3" BorderBrush="Black">
+                                <Border Width="Auto" Height="100" BorderThickness="3" BorderBrush="Black">
                                     <Image Stretch="Fill" Height="100" Width="100" Source="{x:Bind IconImage.Source}"/>
                                 </Border>
 
 
                                 <StackPanel Padding="30" VerticalAlignment="Center">
                                     <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind Name}"/>
+                                    <TextBlock Width="450" Foreground="White" Text="{x:Bind Bio}" TextWrapping="WrapWholeWords"/>
                                 </StackPanel>
 
                             </StackPanel>
@@ -79,12 +80,13 @@
                         <DataTemplate x:DataType="classes:Fighter">
 
                             <StackPanel Orientation="Horizontal" Padding="20">
-                                <Border BorderThickness="3" BorderBrush="Black">
+                                <Border Width="Auto" Height="100" BorderThickness="3" BorderBrush="Black">
                                     <Image Stretch="Fill" Height="100" Width="100" Source="{x:Bind IconImage.Source}"/>
                                 </Border>
 
                                 <StackPanel Padding="30" VerticalAlignment="Center">
                                     <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind Name}"/>
+                                    <TextBlock  Width="450"  Foreground="White" Text="{x:Bind Bio}" TextWrapping="WrapWholeWords"/>
                                 </StackPanel>
 
                             </StackPanel>

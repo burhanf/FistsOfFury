@@ -50,7 +50,9 @@
 
         <!--For characters to appear side by side-->
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
-            <!--<Image Stretch="Fill" Height="200" Width="170" Source="../Assets/Characters/Scorpion/Player1Poses/SPunch.png"/>-->
+            <!--<Image Stretch="Fill" Height="300" Width="350" Source="../Assets/Characters/ShaoKahn/Player1Poses/SKBonus.png"/>
+            <Image Stretch="Fill" Height="200" Width="170" Source="../Assets/Characters/ShaoKahn/Player1Poses/SKBonus.png"/>
+            <Image Stretch="Fill" Height="200" Width="170" Source="../Assets/Characters/ShaoKahn/Player2Poses/SKStanding.png"/>-->
             <Image Stretch="Fill" Height="200" Width="170" x:Name="PlayerOneImage"/>
             <Image Stretch="Fill" Height="200" Width="170" x:Name="PlayerTwoImage"/>
         </StackPanel>
@@ -123,9 +125,10 @@
                     VerticalAlignment="Center" 
                     Click="Bonus_OnClick" x:Name="BonusButton" 
                     IsEnabled="True"
-                    Content="Bonus: (20%)"
+                    Padding="20"
+                    Content="Bonus: (20%) (1x use)"
                     />
-            <TextBlock Foreground="White" Margin="8" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="2" Text="Scorpion's Uppercut: (+800 score and +10 dmg)&#x0a;Sub Zero's Lowkick: (+20 health and +10 dmg)&#x0a;Shao Kahn's Hammer (+40 dmg)"/>
+            <!--<TextBlock Foreground="White" Margin="8" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="2" Text="Scorpion's Uppercut: (+800 score and +10 dmg)&#x0a;Sub Zero's Lowkick: (+20 health and +10 dmg)&#x0a;Shao Kahn's Hammer (+40 dmg)"/>-->
         </Grid>
 
     </Grid>

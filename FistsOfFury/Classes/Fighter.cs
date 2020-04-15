@@ -12,6 +12,7 @@ namespace FistsOfFury.Classes
     public abstract class Fighter
     {
         public string Name { get; set; }
+        public string Bio { get; set; }
         public int Health { get; protected set; }
         public int Score { get; protected set; }
 

@@ -67,7 +67,13 @@ namespace FistsOfFury.Pages
         private void ConfirmCharacterButton_OnClick(object sender, RoutedEventArgs e)
         {
             //check if name is entered for player1, player2
-            if (string.IsNullOrEmpty(PlayerOneNameTextBlock.Text))
+            if (PlayerOneNameTextBlock.Text == PlayerTwoNameTextBlock.Text ||
+                PlayerTwoNameTextBlock.Text == PlayerOneNameTextBlock.Text)
+            {
+                MessageDialog message = new MessageDialog("Both players cannot have the same username. Please enter different usernames. (Case sensitive)");
+                message.ShowAsync();
+            }
+            else if (string.IsNullOrEmpty(PlayerOneNameTextBlock.Text))
             {
                 MessageDialog message = new MessageDialog("Player 1 must enter a username");
                 message.ShowAsync();
