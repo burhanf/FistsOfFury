@@ -9,13 +9,13 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace FistsOfFury.Classes
 {
-    //By Burhan
+    //Principal Author: Burhan
     public class SubZero : Fighter
     {
         public SubZero()
         {
             Name = "Sub-Zero";
-            Bio = "Sub Zero is the leader of the Lin Kuei clan. His bonus move is a low punch which gives him 20 health and inflicts 10 damage.";
+            Bio = "Sub-Zero is the leader of the Lin Kuei clan. His bonus move is a low punch which gives him 20 health and inflicts 10 damage.";
 
             //set character icon
             IconImage = new Image();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FistsOfFury.Classes
 {
-    //By Burhan
+    //Principal Author: Burhan
     public class FightStats
     {
         public double PunchesThrown { get; private set; }

@@ -7,26 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <!--By Burhan-->
+    <!--Principal Author: Burhan-->
     <Page.Resources>
         <Style x:Name="DieRollTextBlockStyle" TargetType="TextBlock">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="Foreground" Value="White"/>
-            
+
         </Style>
     </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
+        <Grid.Background>
+            <!--Temp background-->
+            <ImageBrush ImageSource="../Assets/selectionbackground.PNG"/>
+        </Grid.Background>
+
         <!--Health and Scores-->
-        <Grid>
+        <Grid Margin ="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -34,17 +39,21 @@
 
             <!--Player 1-->
             <StackPanel Grid.Column="0">
-                <TextBlock FontSize="40" Text="Fighter: xx" x:Name="FighterOneNameTextBlock"/>
-                <TextBlock FontSize="50" Text="Health: xx" x:Name="PlayerOneHealthTextBlock"/>
-                <TextBlock FontSize="50" Text="Score: xx" x:Name="PlayerOneScoreTextBlock"/>
+                <TextBlock Foreground="White" FontSize="40" Text="Fighter: xx" x:Name="FighterOneNameTextBlock"/>
+                <TextBlock Foreground="White" FontSize="30" Text="Health: xx" x:Name="PlayerOneHealthTextBlock"/>
+                <TextBlock Foreground="White" FontSize="30" Text="Score: xx" x:Name="PlayerOneScoreTextBlock"/>
+                <ProgressBar Height="30" Width="600" HorizontalAlignment="Left" x:Name="PlayerOneHealthBar" Background="DarkRed" Foreground="Red" Maximum="100" Minimum="0"/>
+
             </StackPanel>
 
-            <StackPanel HorizontalAlignment="Right" Grid.Column="1">
-                <TextBlock FontSize="40" Text="Fighter: xx" x:Name="FighterTwoNameTextBlock"/>
-                <TextBlock FontSize="50" Text="Health: xx" x:Name="PlayerTwoHealthTextBlock"/>
-                <TextBlock FontSize="50" Text="Score: xx" x:Name="PlayerTwoScoreTextBlock"/>
+            <!--Player 2-->
+            <StackPanel Grid.Column="1">
+                <TextBlock Foreground="White" HorizontalAlignment="Right" FontSize="40" Text="Fighter: xx" x:Name="FighterTwoNameTextBlock"/>
+                <TextBlock Foreground="White" HorizontalAlignment="Right" FontSize="30" Text="Health: xx" x:Name="PlayerTwoHealthTextBlock"/>
+                <TextBlock Foreground="White" HorizontalAlignment="Right" FontSize="30" Text="Score: xx" x:Name="PlayerTwoScoreTextBlock"/>
+                <ProgressBar Height="30" Width="600" HorizontalAlignment="Right" x:Name="PlayerTwoHealthBar" Background="DarkRed" Foreground="Red" Maximum="100" Minimum="0"/>
             </StackPanel>
-            
+
         </Grid>
 
 
@@ -53,8 +62,8 @@
             <!--<Image Stretch="Fill" Height="300" Width="350" Source="../Assets/Characters/ShaoKahn/Player1Poses/SKBonus.png"/>
             <Image Stretch="Fill" Height="200" Width="170" Source="../Assets/Characters/ShaoKahn/Player1Poses/SKBonus.png"/>
             <Image Stretch="Fill" Height="200" Width="170" Source="../Assets/Characters/ShaoKahn/Player2Poses/SKStanding.png"/>-->
-            <Image Stretch="Fill" Height="200" Width="170" x:Name="PlayerOneImage"/>
-            <Image Stretch="Fill" Height="200" Width="170" x:Name="PlayerTwoImage"/>
+            <Image Stretch="Fill" Height="300" Width="200" x:Name="PlayerOneImage"/>
+            <Image Stretch="Fill" Height="300" Width="200" x:Name="PlayerTwoImage"/>
         </StackPanel>
 
         <!--Roll dice and determine winner-->
@@ -83,13 +92,13 @@
             <TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerTwoNameTextBlock" Text="Player xx Roll:"/>
 
             <!--Die results-->
-            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerOneSumTextBlock" Text="xx"/>
-            <TextBlock Grid.Column="2" Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerTwoSumTextBlock" Text="xx"/>
+            <TextBlock Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerOneSumTextBlock" Text="xx" Height="150"/>
+            <TextBlock Grid.Column="2" Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerTwoSumTextBlock" Text="xx" Height="150"/>
 
             <!--Determine attacker-->
             <Button Background="LightGray" Click="DetermineAttackerButton_OnClick" x:Name="DetermineAttackerButton" Grid.Column="1" Grid.Row="0" Content="Determine Attacker" FontSize="40" HorizontalAlignment="Center"/>
             <TextBlock Foreground="White" Grid.Row="1" Grid.Column="1" FontSize="30" HorizontalAlignment="Center" x:Name="AttackerTextBlock" Text="The Attacker is xx"/>
-            <Button Background="LightGray" IsEnabled="False" Click="AttackMenuButton_OnClick" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontSize="20" Content="View Attacks" x:Name="AttackMenuButton"/>
+            <Button Background="LightGray" IsEnabled="False" Click="AttackMenuButton_OnClick" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontSize="20" Content="View Attacks" x:Name="AttackMenuButton" Margin="0,60,0,0" VerticalAlignment="Top"/>
 
         </Grid>
 
@@ -118,7 +127,7 @@
             <Button Background="LightGray" Grid.Row="0" Grid.Column="1" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Punch_OnClick" x:Name="PunchButton" Content="Punch: (70%) (+8 dmg) (+100 score)"/>
             <Button Background="LightGray" Grid.Row="0" Grid.Column="2" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="HighKick_OnClick" x:Name="HighKickButton" Content="HighKick: (30%) (+16 dmg) (+300 score)"/>
             <Button Background="LightGray" Grid.Row="1" Grid.Column="1" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="LowKick_OnClick"  x:Name="LowKickButton" Content="LowKick: (50%) (+12 dmg) (+200 score)"/>
-            
+
             <Button Background="LightGray" Grid.Row="1" 
                     Grid.Column="2" 
                     HorizontalAlignment="Center"

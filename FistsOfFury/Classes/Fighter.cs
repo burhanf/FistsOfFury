@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace FistsOfFury.Classes
 {
-    //By Burhan
+    //Principal Author: Burhan
     public abstract class Fighter
     {
         public string Name { get; set; }

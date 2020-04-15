@@ -25,7 +25,7 @@ namespace FistsOfFury.Pages
     /// </summary>
     public sealed partial class FightingPage : Page
     {
-        //By Burhan
+        //Principal Author: Burhan
 
         //property so it can be used throughout the class
         public Match Match { get; set; }
@@ -90,8 +90,10 @@ namespace FistsOfFury.Pages
 
         public void UpdateHealthAndScoreTextBlocks()
         {
-            PlayerOneHealthTextBlock.Text = $"Health: {Match.Fighters[0].Health}";
-            PlayerTwoHealthTextBlock.Text = $"Health: {Match.Fighters[1].Health}";
+            //PlayerOneHealthTextBlock.Text = $"Health: {Match.Fighters[0].Health}";
+            //PlayerTwoHealthTextBlock.Text = $"Health: {Match.Fighters[1].Health}";
+            PlayerOneHealthBar.Value = Match.Fighters[0].Health;
+            PlayerTwoHealthBar.Value = Match.Fighters[1].Health;
 
             PlayerOneScoreTextBlock.Text = $"Score: {Match.Fighters[0].Score}";
             PlayerTwoScoreTextBlock.Text = $"Score: {Match.Fighters[1].Score}";

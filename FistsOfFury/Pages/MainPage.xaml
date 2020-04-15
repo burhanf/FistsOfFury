@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <!--Principal Author: Burhan-->
     <!--Style to reuse for buttons-->
     <Page.Resources>
         <Style x:Name="ButtonsStyle" TargetType="Button">

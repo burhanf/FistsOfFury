@@ -5,7 +5,7 @@ namespace FistsOfFury.Classes
 {
     public class Battle
     {
-        //By Burhan
+        //Principal Author: Burhan
         //properties
         public List<Fighter> Fighters { get; set; }
         public Fighter Attacker { get; set; }
@@ -49,7 +49,7 @@ namespace FistsOfFury.Classes
             //Attacker = null;
             //Opponent = null;
 
-            if (playerOneRoll > playerTwoRoll)
+            if (playerOneRoll >= playerTwoRoll)
             {
                 //player 1 is attacker
                 Attacker = Fighters[0];
@@ -62,6 +62,7 @@ namespace FistsOfFury.Classes
                 Opponent = Fighters[0];
             }
             //tie, goes to the previous attacker
+            //tie, goes to player 1
             else
             {
                 //todo 3.roll again, stack overflow?

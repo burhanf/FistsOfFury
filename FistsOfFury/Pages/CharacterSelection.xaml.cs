@@ -26,6 +26,7 @@ namespace FistsOfFury.Pages
     /// </summary>
     public sealed partial class CharacterSelection : Page
     {
+        //Principal Author: Burhan
         public CharacterSelection()
         {
             this.InitializeComponent();

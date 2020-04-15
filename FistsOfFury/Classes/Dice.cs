@@ -8,7 +8,7 @@ namespace FistsOfFury.Classes
 {
     public class Dice
     {
-        //By Burhan
+        //Principal Author: Burhan
         //methods
         public static int Roll()
         {
