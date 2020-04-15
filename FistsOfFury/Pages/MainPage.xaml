@@ -20,7 +20,6 @@
         </Style>
     </Page.Resources>
 
-    <!--By Burhan-->
     <StackPanel>
         <StackPanel.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

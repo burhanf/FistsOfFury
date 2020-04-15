@@ -11,14 +11,14 @@
     <!--Principal Author: Burhan-->
 
     <Page.Resources>
-        <!--Style for character names-->
+        <!--Style for character info-->
         <Style x:Key="CharacterNameStyle" TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
             <!--<Setter Property="FontFamily" Value="Bahnschrift"/>-->
             <Setter Property="FontSize" Value="20"/>
         </Style>
 
-        <!--Style for confirmation button-->
+        <!--Style for buttons-->
         <Style x:Key="ConfirmButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -34,7 +34,7 @@
             <ImageBrush ImageSource="../Assets/selectionbackground.PNG"/>
         </StackPanel.Background>
 
-        <TextBlock Foreground="Red" FontSize="100"
+        <TextBlock Foreground="#FFCF0000" FontSize="100"
                    Margin="30"
                    HorizontalAlignment="Center" Text="SELECT A FIGHTER" 
                    FontFamily="Mistral" FontWeight="Normal"  />
@@ -59,7 +59,7 @@
 
                                 <StackPanel Padding="30" VerticalAlignment="Center">
                                     <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind Name}"/>
-                                    <TextBlock Width="450" Foreground="White" Text="{x:Bind Bio}" TextWrapping="WrapWholeWords"/>
+                                    <TextBlock  Width="450" Foreground="White" Text="{x:Bind Bio}" TextWrapping="WrapWholeWords"/>
                                 </StackPanel>
 
                             </StackPanel>
@@ -67,7 +67,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-                <!--Button to confirm-->
+                <!--Button to return to main-->
                 <Button Click="ReturnToMain_OnClick" x:Name="ReturnToMain" Style="{StaticResource ConfirmButtonStyle}" Content="Back"/>
             </StackPanel>
 
@@ -96,13 +96,7 @@
                 <!--Button to confirm-->
                 <Button Click="ConfirmCharacterButton_OnClick" x:Name="ConfirmCharacterButton" Style="{StaticResource ConfirmButtonStyle}" 
                         Content="Confirm selections"/>
-
-                <!--Button to confirm-->
-                <!--<Button x:Name="Player2Confirmation" Style="{StaticResource ConfirmButtonStyle}"/>-->
             </StackPanel>
         </StackPanel>
-        <!--Button to confirm-->
-        <!--<Button Click="ConfirmCharacterButton_OnClick" x:Name="ConfirmCharacterButton" Style="{StaticResource ConfirmButtonStyle}" 
-                Content="Confirm selections"/>-->
     </StackPanel>
 </Page>

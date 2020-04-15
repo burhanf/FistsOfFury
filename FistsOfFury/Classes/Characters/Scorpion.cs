@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace FistsOfFury.Classes
 {
     //Principal Author: Burhan
+    //This derived class is one of the three characters
     public class Scorpion : Fighter
     {
         public Scorpion()
@@ -23,31 +24,23 @@ namespace FistsOfFury.Classes
 
         public override void BonusAttack(Fighter opponent)
         {
-            //if (!IsBonusUsed)
-            IsBonusUsed = true;
             //Uppercut
+            IsBonusUsed = true;
             int land = DetermineIfLand();
-                Pose = ImageSet[4];
+            Pose = ImageSet[4];
 
-                if (land >= 8)
-                {
-                    //gives health
-                    Score += 800;
+            if (land >= 8)
+            {
+                //gives health
+                Score += 800;
 
-                    opponent.UpdateHealth(10);
-                    //IsBonusUsed = true;
-                    //image change
-                }
-                else
-                {
-                    //todo can i do this here?
-                    MessageDialog dialog = new MessageDialog("Missed!");
-                    dialog.ShowAsync();
-                }
-                //else
-            //{
-            //    throw new Exception("Bonus is already used");
-            //}
+                opponent.UpdateHealth(10);
+                IsAttackMissed = false;
+            }
+            else
+            {
+                IsAttackMissed = true;
+            }
         }
 
         public override void PopulateImageSet()
@@ -55,7 +48,6 @@ namespace FistsOfFury.Classes
             if (IsPlayerOne)
             {
                 //add the player 1 images to the list
-                //TODO NEEDED IN EACH CHARACTER
                 Image standing = new Image
                 {
                     Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/Scorpion/Player1Poses/SStanding.png", UriKind.RelativeOrAbsolute))

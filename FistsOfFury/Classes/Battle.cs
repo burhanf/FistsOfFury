@@ -6,25 +6,23 @@ namespace FistsOfFury.Classes
     public class Battle
     {
         //Principal Author: Burhan
+        //This class is responsible for performing a fight and calls the appopriate methods from various classes to do so
         //properties
         public List<Fighter> Fighters { get; set; }
-        public Fighter Attacker { get; set; }
-        public Fighter Opponent { get; set; }
+        public Fighter Attacker { get; private set; }
+        public Fighter Opponent { get; private set; }
         public bool IsGameOver { get; private set; }
-        public Fighter Winner { get; set; }
+        public Fighter Winner { get; private set; }
 
-        //ctor
+        //constructor
         public Battle(List<Fighter> fighterList)
         {
             //initialize types
             Fighters = new List<Fighter>();
             Fighters = fighterList;
-            //Fighters.Add(player1);
-            //Fighters.Add(player2);
-            //Dice = new Dice();
             SetImages();
         }
-
+        //methods
         public void SetImages()
         {
             foreach (var fighter in Fighters)
@@ -36,20 +34,14 @@ namespace FistsOfFury.Classes
                 fighter.Pose = fighter.ImageSet[0];
             }
         }
-        //methods
-        //determine attacker
-        //highest die roll wins
         public List<int> DetermineAttacker()
         {
-            //return these to output to screen
+            //highest die roll is attacker
             int playerOneRoll = Dice.Roll();
             int playerTwoRoll = Dice.Roll();
+            List<int> sumList = new List<int>();
 
-            //reset the attacker and opponent
-            //Attacker = null;
-            //Opponent = null;
-
-            if (playerOneRoll >= playerTwoRoll)
+            if (playerOneRoll > playerTwoRoll)
             {
                 //player 1 is attacker
                 Attacker = Fighters[0];
@@ -61,15 +53,11 @@ namespace FistsOfFury.Classes
                 Attacker = Fighters[1];
                 Opponent = Fighters[0];
             }
-            //tie, goes to the previous attacker
-            //tie, goes to player 1
             else
             {
-                //todo 3.roll again, stack overflow?
-                //todo: First one that rolled it got it
-                //DetermineAttacker();
+                //roll again if there's a tie
+                return DetermineAttacker();
             }
-            List<int> sumList = new List<int>();
             sumList.Add(playerOneRoll);
             sumList.Add(playerTwoRoll);
             return sumList;
@@ -82,41 +70,38 @@ namespace FistsOfFury.Classes
                 //punch
                 case 1:
                     {
-                        //attacker chooses punch
                         Attacker.Punch(Opponent);
                         break;
                     }
                 //highkick
                 case 2:
                     {
-                        //attacker chooses high kick
                         Attacker.HighKick(Opponent);
                         break;
                     }
                 //low kick
                 case 3:
                     {
-                        //attacker chooses low kick
                         Attacker.LowKick(Opponent);
                         break;
                     }
                 //bonus
                 case 4:
                     {
-                        //attacker chooses bonus move
                         Attacker.BonusAttack(Opponent);
                         break;
                     }
                 default:
                     {
+                        //in case none of the cases are called, a default case is used 
                         throw new Exception("Invalid choice");
                     }
             }
             CheckIfGameIsOver();
-
         }
         public void CheckIfGameIsOver()
         {
+            //game is over when either player's health is less than or equal to 0
             if (Fighters[0].Health <= 0)
             {
                 IsGameOver = true;

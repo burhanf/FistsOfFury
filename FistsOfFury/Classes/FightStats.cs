@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace FistsOfFury.Classes
 {
     //Principal Author: Burhan
+    //This class keeps track and calculates the attacks that are thrown
     public class FightStats
     {
         public double PunchesThrown { get; private set; }
@@ -17,6 +18,7 @@ namespace FistsOfFury.Classes
         public double LowKicksLanded { get; private set; }
         public double PunchAccuracy
         {
+            //calculation is done in getter
             get
             {
                 if (PunchesThrown != 0)

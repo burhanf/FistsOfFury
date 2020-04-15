@@ -27,6 +27,7 @@ namespace FistsOfFury.Pages
     public sealed partial class CharacterSelection : Page
     {
         //Principal Author: Burhan
+        //This class is responsible for displaying the characters and allowing users to choose them
         public CharacterSelection()
         {
             this.InitializeComponent();
@@ -37,24 +38,21 @@ namespace FistsOfFury.Pages
             //save all info
             NavigationCacheMode = NavigationCacheMode.Enabled;
         }
-
-        //populate character list
         public void PopulateCharacters()
         {
-            //instance of fighters for player one
-            Scorpion scorpionPlayerOne = new Scorpion{IsPlayerOne = true};
+            //Fighters that have images for when they are on the left/player1
+            Scorpion scorpionPlayerOne = new Scorpion { IsPlayerOne = true };
             SubZero subZeroPlayerOne = new SubZero { IsPlayerOne = true };
-            ShaoKahn shaoKahnPlayerOne = new ShaoKahn{ IsPlayerOne = true };
-            
-            //for player two
-            Scorpion scorpionPlayerTwo = new Scorpion{ IsPlayerOne = false };
-            SubZero subZeroPlayerTwo = new SubZero{ IsPlayerOne = false };
-            ShaoKahn shaoKahnPlayerTwo = new ShaoKahn{ IsPlayerOne = false };
+            ShaoKahn shaoKahnPlayerOne = new ShaoKahn { IsPlayerOne = true };
+
+            //Fighters that have images for when they are on the left/player1
+            Scorpion scorpionPlayerTwo = new Scorpion { IsPlayerOne = false };
+            SubZero subZeroPlayerTwo = new SubZero { IsPlayerOne = false };
+            ShaoKahn shaoKahnPlayerTwo = new ShaoKahn { IsPlayerOne = false };
 
             //create a list of fighters to easily add them to the list view
-            List<Fighter> playerOneFighters = new List<Fighter>{scorpionPlayerOne, subZeroPlayerOne, shaoKahnPlayerOne};
-            List<Fighter> playerTwoFighters = new List<Fighter>{scorpionPlayerTwo, subZeroPlayerTwo, shaoKahnPlayerTwo};
-
+            List<Fighter> playerOneFighters = new List<Fighter> { scorpionPlayerOne, subZeroPlayerOne, shaoKahnPlayerOne };
+            List<Fighter> playerTwoFighters = new List<Fighter> { scorpionPlayerTwo, subZeroPlayerTwo, shaoKahnPlayerTwo };
             foreach (var fighter in playerOneFighters)
             {
                 PlayerOneListView.Items.Add(fighter);
@@ -67,7 +65,7 @@ namespace FistsOfFury.Pages
 
         private void ConfirmCharacterButton_OnClick(object sender, RoutedEventArgs e)
         {
-            //check if name is entered for player1, player2
+            //check if name is the same for both players. Should be unique names (case sensitive)
             if (PlayerOneNameTextBlock.Text == PlayerTwoNameTextBlock.Text ||
                 PlayerTwoNameTextBlock.Text == PlayerOneNameTextBlock.Text)
             {
@@ -98,12 +96,8 @@ namespace FistsOfFury.Pages
             }
             else
             {
-                //todo if conditions are met, make objects of USER that contains a fighter instance of each character
-                //fighter for player1 must use images that face right
-                //fighter for player2 must use images that face left
                 CreateFighters();
             }
-            
         }
 
         private void ReturnToMain_OnClick(object sender, RoutedEventArgs e)
@@ -115,20 +109,14 @@ namespace FistsOfFury.Pages
         public void CreateFighters()
         {
             //todo must use username to create PLAYER/USER
-            //user will have a fighter for history purposes? OR
-            //can send the fighter to user after a battle
 
-            //todo new code, create objects from user selected
+            //create objects from user's choice
             Fighter fighterOne = PlayerOneListView.SelectedItem as Fighter;
-            //fighterOne.IsPlayerOne = true;
 
             Fighter fighterTwo = PlayerTwoListView.SelectedItem as Fighter;
-            //fighterTwo.IsPlayerOne = false;
 
-            //send these to fighting apge where itll make a match in there
+            //send these to fighting page as an object of Match
             Match match = new Match(fighterOne, fighterTwo);
-
-            //todo send this match to FighterScreen?
             this.Frame.Navigate(typeof(FightingPage), match);
 
         }

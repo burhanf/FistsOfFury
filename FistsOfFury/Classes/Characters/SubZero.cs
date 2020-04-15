@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace FistsOfFury.Classes
 {
     //Principal Author: Burhan
+    //This derived class is one of the three characters
     public class SubZero : Fighter
     {
         public SubZero()
@@ -23,9 +24,8 @@ namespace FistsOfFury.Classes
         }
         public override void BonusAttack(Fighter opponent)
         {
-            //if (!IsBonusUsed)
-            IsBonusUsed = true;
             //LowPunch
+            IsBonusUsed = true;
             int land = DetermineIfLand();
             Pose = ImageSet[4];
 
@@ -34,26 +34,18 @@ namespace FistsOfFury.Classes
                 //gives health
                 Health += 20;
                 opponent.UpdateHealth(10);
-                //IsBonusUsed = true;
-                //image change
+                IsAttackMissed = false;
             }
             else
             {
-                //todo can i do this here?
-                MessageDialog dialog = new MessageDialog("Missed!");
-                dialog.ShowAsync();
+                IsAttackMissed = true;
             }
         }
-        //else
-        //{
-        //    throw new Exception("Bonus is already used");
-        //}
         public override void PopulateImageSet()
         {
             if (IsPlayerOne)
             {
                 //add the player 1 images to the list
-                //TODO NEEDED IN EACH CHARACTER
                 Image standing = new Image
                 {
                     Source = new BitmapImage(new Uri($"ms-appx:///Assets/Characters/SubZero/Player1Poses/SZStanding.png", UriKind.RelativeOrAbsolute))

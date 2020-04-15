@@ -9,41 +9,39 @@ using Windows.UI.Xaml.Controls;
 namespace FistsOfFury.Classes
 {
     //Principal Author: Burhan
+    //This abstract class is a base class for all fighters and contains logic for each attack
     public abstract class Fighter
     {
-        public string Name { get; set; }
-        public string Bio { get; set; }
+        public string Name { get; protected set; }
+        public string Bio { get; protected set; }
         public int Health { get; protected set; }
         public int Score { get; protected set; }
 
         //stats
-        public FightStats PlayerStats { get; set; }
+        public FightStats PlayerStats { get; }
 
         //images
         public Image IconImage { get; set; }
         public bool IsPlayerOne { get; set; }
         public Image Pose { get; set; }
         public List<Image> ImageSet { get; set; }
-        //public bool IsAttackingPlayer { get; set; }
-        public bool IsBonusUsed { get; set; }
+        public bool IsBonusUsed { get; protected set; }
+        public bool IsAttackMissed { get; protected set; }
 
-        //ctor
+        //constructor
         public Fighter()
         {
             Health = 100;
             PlayerStats = new FightStats();
-            //Dice = new Dice();
 
             Pose = new Image();
             ImageSet = new List<Image>();
-            //ImageSet = _imageset;
         }
 
         //methods
         public int DetermineIfLand()
         {
             Random random = new Random();
-
             int land = random.Next(1, 11);
 
             return land;
@@ -61,13 +59,11 @@ namespace FistsOfFury.Classes
                 opponent.UpdateHealth(8);
                 PlayerStats.UpdatePunchLanded();
                 Score += 100;
-                //image change
+                IsAttackMissed = false;
             }
             else
             {
-                //todo can i do this here?
-                MessageDialog dialog = new MessageDialog("Missed!");
-                dialog.ShowAsync();
+                IsAttackMissed = true;
             }
         }
         public void HighKick(Fighter opponent)
@@ -75,23 +71,19 @@ namespace FistsOfFury.Classes
 
             PlayerStats.UpdateHighKicksThrown();
             int land = DetermineIfLand();
-            //int land = 8;
             Pose = ImageSet[2];
 
             //must be greater than 8 to land (30% chance)
             if (land >= 7)
             {
-                //should be opponent.UpdateHealth(16)
                 opponent.UpdateHealth(16);
                 PlayerStats.UpdateHighKicksLanded();
                 Score += 300;
-                //image change
+                IsAttackMissed = false;
             }
             else
             {
-                //todo can i do this here?
-                MessageDialog dialog = new MessageDialog("Missed!");
-                dialog.ShowAsync();
+                IsAttackMissed = true;
             }
         }
         public void LowKick(Fighter opponent)
@@ -106,28 +98,17 @@ namespace FistsOfFury.Classes
                 opponent.UpdateHealth(12);
                 PlayerStats.UpdateLowKicksLanded();
                 Score += 200;
-                //image change
+                IsAttackMissed = false;
             }
             else
             {
-                //todo can i do this here?
-                MessageDialog dialog = new MessageDialog("Missed!");
-                dialog.ShowAsync();
+                IsAttackMissed = true;
             }
         }
-
-
-        public abstract void BonusAttack(Fighter opponent);
-        public abstract void PopulateImageSet();
         public void UpdateHealth(int healthToRemove)
         {
             //removes health
             Health -= healthToRemove;
-        }
-        //choose attack
-        public void ChooseAttack()
-        {
-            //Battle.ChooseAttack();
         }
 
         //set default pose 
@@ -135,5 +116,7 @@ namespace FistsOfFury.Classes
         {
             return ImageSet[0];
         }
+        public abstract void BonusAttack(Fighter opponent);
+        public abstract void PopulateImageSet();
     }
 }
