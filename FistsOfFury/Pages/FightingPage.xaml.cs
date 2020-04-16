@@ -25,11 +25,13 @@ namespace FistsOfFury.Pages
     /// </summary>
     public sealed partial class FightingPage : Page
     {
-        //Principal Author: Burhan
-        //This class is responsible for the players fighting each other 
+        /// <summary>
+        /// Principal Author: Burhan
+        /// This class is responsible for the players fighting each other 
+        /// </summary>
 
         //Properties
-        public Match Match { get; set; }
+        public Match Match { get; private set; }
         public FightingPage()
         {
             this.InitializeComponent();
@@ -47,6 +49,12 @@ namespace FistsOfFury.Pages
             FighterOneNameTextBlock.Text = Match.Fighters[0].Name;
             FighterTwoNameTextBlock.Text = Match.Fighters[1].Name;
 
+            //todo this must be replaced with the player's name
+            PlayerOneNameTextBlock.Text = Match.Fighters[0].Name;
+            PlayerTwoNameTextBlock.Text = Match.Fighters[1].Name;
+
+            //todo set background to the image selected from ArenaSelection
+
             UpdateHealthAndScoreTextBlocks();
         }
         private void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)
@@ -54,7 +62,7 @@ namespace FistsOfFury.Pages
             //check if there's a winner to display
             if (Match.Battle.Winner != null)
             {
-                MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.Name}!");
+                MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.Name}!\nPunch Accuracy: {Match.Battle.Winner.PlayerStats.PunchAccuracy}%\nLow Kick Accuracy: {Match.Battle.Winner.PlayerStats.LowKickAccuracy}%\nHigh Kick Accuracy: {Match.Battle.Winner.PlayerStats.HighKickAccuracy}%");
                 dialog.ShowAsync();
                 //todo Go to next page fight statistics screen
             }
@@ -73,9 +81,9 @@ namespace FistsOfFury.Pages
                 //allow player to view attack's
                 AttackMenuButton.IsEnabled = true;
             }
-            
+
         }
-        public async void ChangeImage(Image playerImage)
+        private async void ChangeImage(Image playerImage)
         {
             //changes the appopriate image control
 
@@ -85,7 +93,7 @@ namespace FistsOfFury.Pages
             playerImage.Source = Match.Battle.Attacker.DefaultPose().Source;
         }
 
-        public void UpdateHealthAndScoreTextBlocks()
+        private void UpdateHealthAndScoreTextBlocks()
         {
             PlayerOneHealthTextBlock.Text = $"Health: {Match.Fighters[0].Health}";
             PlayerTwoHealthTextBlock.Text = $"Health: {Match.Fighters[1].Health}";
@@ -96,7 +104,7 @@ namespace FistsOfFury.Pages
             PlayerTwoScoreTextBlock.Text = $"Score: {Match.Fighters[1].Score}";
         }
 
-        public void DisplayMissedAttackPrompt()
+        private void DisplayMissedAttackPrompt()
         {
             //if the fighter has attempted an attack and missed, notify the player
             if (Match.Battle.Attacker.IsAttackMissed)
@@ -173,28 +181,15 @@ namespace FistsOfFury.Pages
         {
             HighKickButton.IsEnabled = false;
 
-            //bonus move can only be used once in entire game for each player
-            if (Match.Battle.Attacker.IsBonusUsed)
+            if (Match.Battle.Attacker.IsPlayerOne)
             {
-                //let them know they can't use it
-                MessageDialog dialog = new MessageDialog("Bonus is already used! Cannot use again.");
-                dialog.ShowAsync();
-
-                //don't change attack menu
-                AttackGrid.Visibility = Visibility.Visible;
+                Match.Battle.ChooseAttack(4);
+                ChangeImage(PlayerOneImage);
             }
             else
             {
-                if (Match.Battle.Attacker.IsPlayerOne)
-                {
-                    Match.Battle.ChooseAttack(4);
-                    ChangeImage(PlayerOneImage);
-                }
-                else
-                {
-                    Match.Battle.ChooseAttack(4);
-                    ChangeImage(PlayerTwoImage);
-                }
+                Match.Battle.ChooseAttack(4);
+                ChangeImage(PlayerTwoImage);
             }
             DisplayMissedAttackPrompt();
             UpdateHealthAndScoreTextBlocks();
@@ -202,7 +197,7 @@ namespace FistsOfFury.Pages
             ChangeVisibility();
         }
 
-        
+
         private void ChangeVisibility()
         {
             //if the current screen is the die roll, change it to the attack screen, if not, make it die roll screen
@@ -213,12 +208,13 @@ namespace FistsOfFury.Pages
                 //disable it so it cannot be pressed multiple times
                 DetermineAttackerButton.IsEnabled = true;
 
+                //bonus move can only be used once in entire game for each player
                 //only let bonus be used again for that player if they haven't used their bonus move yet
-                if (Match.Battle.Fighters[0] == Match.Battle.Attacker && Match.Battle.Attacker.IsBonusUsed)
+                if ((Match.Battle.Fighters[0] == Match.Battle.Attacker) && Match.Battle.Attacker.IsBonusUsed)
                 {
                     BonusButton.IsEnabled = false;
                 }
-                else if (Match.Battle.Fighters[1] == Match.Battle.Attacker && Match.Battle.Attacker.IsBonusUsed)
+                else if ((Match.Battle.Fighters[1] == Match.Battle.Attacker) && Match.Battle.Attacker.IsBonusUsed)
                 {
                     BonusButton.IsEnabled = false;
                 }

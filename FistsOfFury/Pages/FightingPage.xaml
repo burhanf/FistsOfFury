@@ -32,17 +32,21 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
         <Grid.Background>
-            <!--Temp background-->
-            <ImageBrush ImageSource="../Assets/selectionbackground.PNG"/>
+            <!--TODO: Temp background-->
+            <ImageBrush x:Name="ArenaBackgroundImage" Stretch="None" ImageSource="../Assets/fightbackgroundtemp.png"/>
         </Grid.Background>
 
         <!--Health and Scores-->
-        <Grid Margin ="20">
+        <Grid Padding ="20" >
+            <Grid.Background>
+                <AcrylicBrush TintColor="#CC000000" TintOpacity="0.2"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -74,17 +78,20 @@
 
 
         <!--For characters to appear side by side-->
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
-            <Image Stretch="Fill" Height="350" Width="250" x:Name="PlayerOneImage"/>
-            <Image Stretch="Fill" Height="350" Width="250" x:Name="PlayerTwoImage"/>
+        <!--Source="../Assets/Characters/SubZero/Player1Poses/SZStanding.png"-->
+        <StackPanel Margin="2" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
+            <Image Stretch="Fill" Height="280" Width="210" x:Name="PlayerOneImage"/>
+            <Image Stretch="Fill" Height="280" Width="210" x:Name="PlayerTwoImage"/>
         </StackPanel>
 
         <!--Roll dice and determine winner-->
-        <Grid x:Name="DieRollGrid" Visibility="Visible" Grid.Row="2">
+        <Grid x:Name="DieRollGrid" Visibility="Visible" Grid.Row="3">
             <Grid.Background>
+                <!--Gradient colours represent fire-->
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF920000" Offset="0.42"/>
                     <GradientStop Color="#FFBFA91C" Offset="1"/>
+                    <GradientStop Color="#FF470000" Offset="0.044"/>
                 </LinearGradientBrush>
             </Grid.Background>
 
@@ -104,23 +111,23 @@
             <TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerTwoNameTextBlock" Text="Player xx Roll:"/>
 
             <!--Die results-->
-            <TextBlock Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerOneSumTextBlock" Text="xx" Height="150"/>
-            <TextBlock Grid.Column="2" Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerTwoSumTextBlock" Text="xx" Height="150"/>
+            <TextBlock Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerOneSumTextBlock" Text="xx" Height="100"/>
+            <TextBlock Grid.Column="2" Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerTwoSumTextBlock" Text="xx" Height="100"/>
 
             <!--Determine attacker-->
             <Button Background="LightGray" Click="DetermineAttackerButton_OnClick" x:Name="DetermineAttackerButton" Grid.Column="1" Grid.Row="0" Content="Determine Attacker" FontSize="40" HorizontalAlignment="Center"/>
             <TextBlock Foreground="White" Grid.Row="1" Grid.Column="1" FontSize="30" HorizontalAlignment="Center" x:Name="AttackerTextBlock" Text="The Attacker is xx"/>
-            <Button Background="LightGray" IsEnabled="False" Click="AttackMenuButton_OnClick" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontSize="20" Content="View Attacks" x:Name="AttackMenuButton" Margin="0,60,0,0" VerticalAlignment="Top"/>
+            <Button Background="LightGray" IsEnabled="False" Click="AttackMenuButton_OnClick" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontSize="20" Content="View Attacks" x:Name="AttackMenuButton" Margin="0,45,0,0" VerticalAlignment="Top"/>
 
         </Grid>
 
         <!--Choose attack-->
-        <Grid x:Name="AttackGrid" Visibility="Collapsed" Grid.Row="2">
+        <Grid x:Name="AttackGrid" Visibility="Collapsed" Grid.Row="3">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <!--Gradient colours represent fire-->
                     <GradientStop Color="#FF920000" Offset="0.42"/>
                     <GradientStop Color="#FFBFA91C" Offset="1"/>
+                    <GradientStop Color="#FF470000" Offset="0.044"/>
                 </LinearGradientBrush>
             </Grid.Background>
 

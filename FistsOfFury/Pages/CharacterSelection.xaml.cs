@@ -38,7 +38,7 @@ namespace FistsOfFury.Pages
             //save all info
             NavigationCacheMode = NavigationCacheMode.Enabled;
         }
-        public void PopulateCharacters()
+        private void PopulateCharacters()
         {
             //Fighters that have images for when they are on the left/player1
             Scorpion scorpionPlayerOne = new Scorpion { IsPlayerOne = true };
@@ -106,7 +106,7 @@ namespace FistsOfFury.Pages
             this.Frame.GoBack();
         }
 
-        public void CreateFighters()
+        private void CreateFighters()
         {
             //todo must use username to create PLAYER/USER
 

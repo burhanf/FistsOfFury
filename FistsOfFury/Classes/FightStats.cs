@@ -18,6 +18,7 @@ namespace FistsOfFury.Classes
         public double LowKicksLanded { get; private set; }
         public double PunchAccuracy
         {
+            //todo is a private variable required to be declared for this property that has a calculated getter?
             //calculation is done in getter
             get
             {
