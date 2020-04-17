@@ -23,7 +23,7 @@ namespace FistsOfFury.Classes
             SetImages();
         }
         //methods
-        public void SetImages()
+        private void SetImages()
         {
             foreach (var fighter in Fighters)
             {
@@ -99,7 +99,7 @@ namespace FistsOfFury.Classes
             }
             CheckIfGameIsOver();
         }
-        public void CheckIfGameIsOver()
+        private void CheckIfGameIsOver()
         {
             //game is over when either player's health is less than or equal to 0
             if (Fighters[0].Health <= 0)

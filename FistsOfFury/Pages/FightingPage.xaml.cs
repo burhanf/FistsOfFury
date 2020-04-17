@@ -133,7 +133,7 @@ namespace FistsOfFury.Pages
             DisplayMissedAttackPrompt();
             UpdateHealthAndScoreTextBlocks();
 
-            await Task.Delay(1000);
+            await Task.Delay(900);
             ChangeVisibility();
         }
 
@@ -153,7 +153,7 @@ namespace FistsOfFury.Pages
             }
             DisplayMissedAttackPrompt();
             UpdateHealthAndScoreTextBlocks();
-            await Task.Delay(1000);
+            await Task.Delay(900);
             ChangeVisibility();
         }
 
@@ -173,7 +173,7 @@ namespace FistsOfFury.Pages
             }
             DisplayMissedAttackPrompt();
             UpdateHealthAndScoreTextBlocks();
-            await Task.Delay(1000);
+            await Task.Delay(900);
             ChangeVisibility();
         }
 
@@ -193,7 +193,7 @@ namespace FistsOfFury.Pages
             }
             DisplayMissedAttackPrompt();
             UpdateHealthAndScoreTextBlocks();
-            await Task.Delay(1000);
+            await Task.Delay(900);
             ChangeVisibility();
         }
 
