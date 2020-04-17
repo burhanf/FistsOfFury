@@ -190,6 +190,9 @@
     <Content Include="Assets\Characters\SubZero\Player2Poses\SZStanding.png" />
     <Content Include="Assets\Characters\SubZero\szcharacter.PNG" />
     <Content Include="Assets\fightbackgroundtemp.png" />
+    <Content Include="Assets\Maps\Deadpool.png" />
+    <Content Include="Assets\Maps\CourtYard.png" />
+    <Content Include="Assets\Maps\ThePit.png" />
     <Content Include="Assets\selectionbackground.PNG" />
     <Content Include="Assets\title.png" />
     <Content Include="Properties\Default.rd.xml" />

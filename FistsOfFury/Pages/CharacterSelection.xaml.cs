@@ -117,7 +117,7 @@ namespace FistsOfFury.Pages
 
             //send these to fighting page as an object of Match
             Match match = new Match(fighterOne, fighterTwo);
-            this.Frame.Navigate(typeof(FightingPage), match);
+            this.Frame.Navigate(typeof(StageScreen), match);
 
         }
     }

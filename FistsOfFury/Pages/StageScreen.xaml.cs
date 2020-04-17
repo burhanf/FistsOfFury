@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Devices;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,6 +24,7 @@ namespace FistsOfFury.Pages
     /// </summary>
     public sealed partial class StageScreen : Page
     {
+        public Match Match { get; private set; }
         public StageScreen()
         {
             this.InitializeComponent();
@@ -49,6 +51,13 @@ namespace FistsOfFury.Pages
 
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Match = e.Parameter as Match;
+
+            Match.ArenaImage = new Image();
+        }
+        
         private void GoToBattle_OnClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(FightingPage));

@@ -39,7 +39,7 @@
 
         <Grid.Background>
             <!--TODO: Temp background-->
-            <ImageBrush x:Name="ArenaBackgroundImage" Stretch="None" ImageSource="../Assets/fightbackgroundtemp.png"/>
+            <ImageBrush x:Name="background" Stretch="None" ImageSource="../Assets/fightbackgroundtemp.png"/>
         </Grid.Background>
 
         <!--Health and Scores-->
