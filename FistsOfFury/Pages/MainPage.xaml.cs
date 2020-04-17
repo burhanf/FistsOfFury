@@ -7,11 +7,12 @@ using FistsOfFury.Classes;
 namespace FistsOfFury.Pages
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Principal Author: Burhan
+    /// This class is just a main menu that navigates to requested page
     /// </summary>
-    public sealed partial class MainPage : Page 
-        //Principal Author: Burhan
-    //This class is just a main menu that navigates to requested page
+    public sealed partial class MainPage : Page
+
+
     {
         Database Database { get; }
         

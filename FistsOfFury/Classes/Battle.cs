@@ -11,7 +11,7 @@ namespace FistsOfFury.Classes
         public List<Fighter> Fighters { get; }
         public Fighter Attacker { get; private set; }
         public Fighter Opponent { get; private set; }
-        public bool IsGameOver { get; private set; }
+        private bool _isGameOver;
         public Fighter Winner { get; private set; }
 
         //constructor
@@ -104,12 +104,12 @@ namespace FistsOfFury.Classes
             //game is over when either player's health is less than or equal to 0
             if (Fighters[0].Health <= 0)
             {
-                IsGameOver = true;
+                _isGameOver = true;
                 Winner = Fighters[1];
             }
             else if (Fighters[1].Health <= 0)
             {
-                IsGameOver = true;
+                _isGameOver = true;
                 Winner = Fighters[0];
             }
         }
