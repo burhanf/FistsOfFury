@@ -62,9 +62,9 @@ namespace FistsOfFury.Pages
             //check if there's a winner to display
             if (Match.Battle.Winner != null)
             {
+                //todo Go to next page fight statistics screen
                 MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.Name}!\nPunch Accuracy: {Match.Battle.Winner.PlayerStats.PunchAccuracy}%\nLow Kick Accuracy: {Match.Battle.Winner.PlayerStats.LowKickAccuracy}%\nHigh Kick Accuracy: {Match.Battle.Winner.PlayerStats.HighKickAccuracy}%");
                 dialog.ShowAsync();
-                //todo Go to next page fight statistics screen
             }
             else
             {
@@ -232,6 +232,16 @@ namespace FistsOfFury.Pages
                 PunchButton.IsEnabled = true;
                 HighKickButton.IsEnabled = true;
                 LowKickButton.IsEnabled = true;
+            }
+
+            //if a winner has been found, update the determine button to let user go to stats page
+            if (Match.Battle.Winner != null)
+            {
+                //change the text of the button to tell user to advance to next screen
+                DetermineAttackerButton.Content = "See Winner Details";
+
+                //change the attacker text to display the winner's name
+                AttackerTextBlock.Text = $"The winner is {Match.Battle.Winner.Name}!";
             }
         }
 
