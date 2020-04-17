@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FistsOfFury.Classes;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -20,18 +21,19 @@ namespace FistsOfFury.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Leaderboard : Page
+    public sealed partial class Leaderboard : Page, IDatabase
     {
+        public Database Database { get; set; }
         public Leaderboard()
         {
             this.InitializeComponent();
 
-            for (int i = 0; i < 10; i++)
-            {
-                
+        }
 
-
-            }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            Database = (Database)e.Parameter;
         }
     }
 }
