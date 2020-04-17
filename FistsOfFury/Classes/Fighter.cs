@@ -8,8 +8,10 @@ using Windows.UI.Xaml.Controls;
 
 namespace FistsOfFury.Classes
 {
-    //Principal Author: Burhan
-    //This abstract class is a base class for all fighters and contains logic for each attack
+    /// <summary>
+    /// Principal Author: Burhan
+    /// This abstract class is a base class for all fighters and contains logic for each attack
+    /// </summary>
     public abstract class Fighter
     {
         public string Name { get; protected set; }

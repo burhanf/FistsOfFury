@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace FistsOfFury.Classes
 {
-    //Principal Author: Burhan
-    //This class keeps track and calculates the attacks that are thrown
+    /// <summary>
+    /// Principal Author: Burhan
+    /// This class keeps track and calculates the attacks that are thrown
+    /// </summary>
+
     public class FightStats
     {
         public double PunchesThrown { get; private set; }
