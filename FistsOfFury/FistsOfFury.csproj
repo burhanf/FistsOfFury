@@ -124,6 +124,7 @@
     <Compile Include="Classes\Characters\SubZero.cs" />
     <Compile Include="Classes\Battle.cs" />
     <Compile Include="Classes\Database\Database.cs" />
+    <Compile Include="Classes\Database\IDatabase.cs" />
     <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\FightStats.cs" />
