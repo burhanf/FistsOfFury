@@ -45,7 +45,7 @@ namespace FistsOfFury.Pages
             maps.Add(courtyard);
             maps.Add(thePit);
 
-         
+
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -56,7 +56,7 @@ namespace FistsOfFury.Pages
         
         private void GoToBattle_OnClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(FightingPage));
+            
         }
 
         private void ReturnToCharacters_OnClick(object sender, RoutedEventArgs e)
