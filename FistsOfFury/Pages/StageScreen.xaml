@@ -13,8 +13,8 @@
     <!-- Done by Justin -->
     <Page.Resources>
         <Style x:Key="StageScreens" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="30"/>
         </Style>
     </Page.Resources>
 
@@ -44,6 +44,8 @@
                             </Border>
                             <StackPanel Padding="30" VerticalAlignment="Center">
                                 <TextBlock Style="{StaticResource StageScreens}" Text="{x:Bind ImageName}" />
+                                <TextBlock Style="{StaticResource StageScreens}" Text="{x:Bind MapsBio}" />
+
                             </StackPanel>
 
                         </StackPanel>

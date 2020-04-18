@@ -66,7 +66,6 @@ namespace FistsOfFury.Pages
 
             Match.ArenaImage = maps.MImage;
 
-
         }
 
         private void GoToBattle_OnClick(object sender, RoutedEventArgs e)
