@@ -22,12 +22,12 @@ namespace FistsOfFury.Pages
         {
             this.InitializeComponent();
             Database = new Database();
-            var x = new MessageDialog("");
-            foreach (var document in Database.GetLeaderboard())
-            {
-                x.Title=document.GetValue("Name").ToString();
-                x.ShowAsync();
-            }
+            //var x = new MessageDialog("");
+            //foreach (var document in Database.GetLeaderboard())
+            //{
+            //    x.Title=document.GetValue("FighterName").ToString();
+            //    x.ShowAsync();
+            //}
             
         }
 

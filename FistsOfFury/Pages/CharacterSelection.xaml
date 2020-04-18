@@ -9,12 +9,12 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <!--Principal Author: Burhan-->
+    <!--This page allows 2 players to choose thier characters-->
 
     <Page.Resources>
         <!--Style for character info-->
         <Style x:Key="CharacterNameStyle" TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
-            <!--<Setter Property="FontFamily" Value="Bahnschrift"/>-->
             <Setter Property="FontSize" Value="20"/>
         </Style>
 
@@ -27,9 +27,7 @@
         </Style>
     </Page.Resources>
 
-    <!--By Burhan-->
     <StackPanel>
-        <!--Brick pixelated background-->
         <StackPanel.Background>
             <ImageBrush ImageSource="../Assets/selectionbackground.PNG"/>
         </StackPanel.Background>
@@ -58,7 +56,7 @@
 
 
                                 <StackPanel Padding="30" VerticalAlignment="Center">
-                                    <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind Name}"/>
+                                    <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind FighterName}"/>
                                     <TextBlock  Width="450" Foreground="White" Text="{x:Bind Bio}" TextWrapping="WrapWholeWords"/>
                                 </StackPanel>
 
@@ -85,7 +83,7 @@
                                 </Border>
 
                                 <StackPanel Padding="30" VerticalAlignment="Center">
-                                    <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind Name}"/>
+                                    <TextBlock Style="{StaticResource CharacterNameStyle}" Text="{x:Bind FighterName}"/>
                                     <TextBlock  Width="450"  Foreground="White" Text="{x:Bind Bio}" TextWrapping="WrapWholeWords"/>
                                 </StackPanel>
 

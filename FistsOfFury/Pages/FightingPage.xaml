@@ -38,8 +38,7 @@
         </Grid.RowDefinitions>
 
         <Grid.Background>
-            <!--TODO: Temp background-->
-            <ImageBrush x:Name="background" Stretch="None" ImageSource="../Assets/fightbackgroundtemp.png"/>
+            <ImageBrush x:Name="ArenaBackgroundImage" Stretch="None"/>
         </Grid.Background>
 
         <!--Health and Scores-->
@@ -78,7 +77,6 @@
 
 
         <!--For characters to appear side by side-->
-        <!--Source="../Assets/Characters/SubZero/Player1Poses/SZStanding.png"-->
         <StackPanel Margin="2" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
             <Image Stretch="Fill" Height="280" Width="210" x:Name="PlayerOneImage"/>
             <Image Stretch="Fill" Height="280" Width="210" x:Name="PlayerTwoImage"/>
@@ -106,9 +104,9 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <!--Name textblocks-->
-            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerOneNameTextBlock" Text="Player xx Roll:"/>
-            <TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerTwoNameTextBlock" Text="Player xx Roll:"/>
+            <!--TODO: Name textblocks, must be obtained through Marco-->
+            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerOneTextBlock" Text="Player xx Roll:"/>
+            <TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerTwoTextBlock" Text="Player xx Roll:"/>
 
             <!--Die results-->
             <TextBlock Grid.Row="1" FontSize="60" Style="{StaticResource DieRollTextBlockStyle}" x:Name="PlayerOneSumTextBlock" Text="xx" Height="100"/>

@@ -41,13 +41,13 @@ namespace FistsOfFury.Classes
 
         public List<BsonDocument> GetUserHistory(string name)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("Name", name.ToLower());
+            var filter = Builders<BsonDocument>.Filter.Eq("FighterName", name.ToLower());
             return _leaderboard.Find(filter).ToList();
         }
 
         public FightStats Deserialize(BsonDocument d)
         {
-            return new FightStats(d.GetValue("Name").ToString(), d.GetValue("Score").ToInt32(), d.GetValue("PunchesThrown").ToInt32(), d.GetValue("HighKicksThrown").ToInt32(), d.GetValue("LowKicksThrown").ToInt32(), d.GetValue("PunchesLanded").ToInt32(), d.GetValue("HighKicksLanded").ToInt32(), d.GetValue("LowKicksLanded").ToInt32());
+            return new FightStats(d.GetValue("FighterName").ToString(), d.GetValue("Score").ToInt32(), d.GetValue("PunchesThrown").ToInt32(), d.GetValue("HighKicksThrown").ToInt32(), d.GetValue("LowKicksThrown").ToInt32(), d.GetValue("PunchesLanded").ToInt32(), d.GetValue("HighKicksLanded").ToInt32(), d.GetValue("LowKicksLanded").ToInt32());
         }
     }
 }
