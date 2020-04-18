@@ -14,7 +14,7 @@
         <StackPanel>
             <TextBox 
                 x:Name="playerName" 
-                Text="Enter Player FighterName"/>
+                Text="Enter Player Name"/>
             <ListView
                 x:Name="myListView"
                 Margin="120, 0, 0, 60"

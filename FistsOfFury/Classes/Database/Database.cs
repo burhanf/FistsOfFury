@@ -41,6 +41,7 @@ namespace FistsOfFury.Classes
 
         public List<BsonDocument> GetUserHistory(string name)
         {
+            //todo might need to be Name
             var filter = Builders<BsonDocument>.Filter.Eq("FighterName", name.ToLower());
             return _leaderboard.Find(filter).ToList();
         }

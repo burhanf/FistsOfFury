@@ -38,7 +38,7 @@
         </Grid.RowDefinitions>
 
         <Grid.Background>
-            <ImageBrush x:Name="ArenaBackgroundImage" Stretch="UniformToFill"/>
+            <ImageBrush x:Name="ArenaBackgroundImage" Stretch="UniformToFill" ImageSource="../Assets/fightbackgroundtemp.png"/>
         </Grid.Background>
 
         <!--Health and Scores-->

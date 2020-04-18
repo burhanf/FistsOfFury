@@ -58,9 +58,9 @@ namespace FistsOfFury.Pages
             UpdateHealthAndScoreTextBlocks();
 
             //todo set background to the image selected from ArenaSelection by Justin
-            Image image = new Image();
-            image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{ArenaBackgroundImage}", UriKind.RelativeOrAbsolute));
-            ArenaBackgroundImage.ImageSource = image.Source;
+            //Image image = new Image();
+            //image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/fightbackgroundtemp.png", UriKind.RelativeOrAbsolute));
+            ArenaBackgroundImage.ImageSource = Match.ArenaImage.Source;
         }
         private async void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -250,7 +250,7 @@ namespace FistsOfFury.Pages
                 DetermineAttackerButton.Content = "See Winner Details";
 
                 //change the attacker text to display the winner's name
-                AttackerTextBlock.Text = $"The Winner Is {Match.Battle.Winner.FighterName}!";
+                AttackerTextBlock.Text = $"The winner is {Match.Battle.Winner.FighterName}!";
             }
         }
 
