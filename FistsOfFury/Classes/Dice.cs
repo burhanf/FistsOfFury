@@ -4,8 +4,11 @@ namespace FistsOfFury.Classes
 {
     public class Dice
     {
-        //Principal Author: Burhan
-        //This class contains a static method that just rolls 2 dice and returns the result
+        /// <summary>
+        /// Principal Author: Burhan
+        /// This class contains a static method that just rolls 2 dice and returns the result
+        /// </summary>
+
         public static int Roll()
         {
             Random randomNumberGenerator = new Random();

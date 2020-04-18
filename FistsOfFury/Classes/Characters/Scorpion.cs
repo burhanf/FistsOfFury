@@ -9,8 +9,10 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace FistsOfFury.Classes
 {
-    //Principal Author: Burhan
-    //This derived class is one of the three characters
+    /// <summary>
+    /// Principal Author: Burhan
+    /// This derived class is one of the three characters
+    /// </summary>
     public class Scorpion : Fighter
     {
         public Scorpion()

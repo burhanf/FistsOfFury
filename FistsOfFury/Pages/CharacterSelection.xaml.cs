@@ -26,8 +26,10 @@ namespace FistsOfFury.Pages
     /// </summary>
     public sealed partial class CharacterSelection : Page
     {
-        //Principal Author: Burhan
-        //This class is responsible for displaying the characters and allowing users to choose them
+        /// <summary>
+        /// Principal Author: Burhan
+        /// This class is responsible for displaying the characters and allowing users to choose them
+        /// </summary>
         public CharacterSelection()
         {
             this.InitializeComponent();
@@ -117,7 +119,7 @@ namespace FistsOfFury.Pages
 
             //send these to fighting page as an object of Match
             Match match = new Match(fighterOne, fighterTwo);
-            this.Frame.Navigate(typeof(FightingPage), match);
+            this.Frame.Navigate(typeof(StageScreen), match);
 
         }
     }

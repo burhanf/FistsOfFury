@@ -128,7 +128,11 @@
     <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\FightStats.cs" />
+    <Compile Include="Classes\Maps.cs" />
     <Compile Include="Classes\Match.cs" />
+    <Compile Include="Classes\Stages\Courtyard.cs" />
+    <Compile Include="Classes\Stages\Deadpool.cs" />
+    <Compile Include="Classes\Stages\ThePit.cs" />
     <Compile Include="Pages\CharacterSelection.xaml.cs">
       <DependentUpon>CharacterSelection.xaml</DependentUpon>
     </Compile>
@@ -140,6 +144,9 @@
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StageScreen.xaml.cs">
+      <DependentUpon>StageScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -183,6 +190,9 @@
     <Content Include="Assets\Characters\SubZero\Player2Poses\SZStanding.png" />
     <Content Include="Assets\Characters\SubZero\szcharacter.PNG" />
     <Content Include="Assets\fightbackgroundtemp.png" />
+    <Content Include="Assets\Maps\Deadpool.png" />
+    <Content Include="Assets\Maps\CourtYard.png" />
+    <Content Include="Assets\Maps\ThePit.png" />
     <Content Include="Assets\selectionbackground.PNG" />
     <Content Include="Assets\title.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -214,6 +224,10 @@
     <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StageScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
