@@ -117,7 +117,7 @@ namespace FistsOfFury.Pages
 
             Fighter fighterTwo = PlayerTwoListView.SelectedItem as Fighter;
 
-            //send these to fighting page as an object of Match
+            //send these to Fighting Screen as an object of Match
             Match match = new Match(fighterOne, fighterTwo);
             this.Frame.Navigate(typeof(StageScreen), match);
 

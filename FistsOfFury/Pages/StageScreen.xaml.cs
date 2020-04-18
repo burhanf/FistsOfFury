@@ -8,10 +8,12 @@ using Windows.Foundation.Collections;
 using Windows.Media.Devices;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using FistsOfFury.Classes;
 
@@ -56,10 +58,21 @@ namespace FistsOfFury.Pages
             Match = e.Parameter as Match;
 
             Match.ArenaImage = new Image();
+
         }
-        
+        public void SetArena()
+        {
+            Maps maps = Stages.SelectedItem as Maps;
+
+            Match.ArenaImage = maps.MImage;
+
+
+        }
+
         private void GoToBattle_OnClick(object sender, RoutedEventArgs e)
         {
+
+            SetArena();
             this.Frame.Navigate(typeof(FightingPage), Match);
         }
 
@@ -67,6 +80,7 @@ namespace FistsOfFury.Pages
         {
             this.Frame.GoBack();
         }
+
 
     }
 }

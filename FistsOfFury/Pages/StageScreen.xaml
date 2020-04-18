@@ -10,6 +10,7 @@
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <!-- Done by Justin -->
     <Page.Resources>
         <Style x:Key="StageScreens" TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
@@ -38,7 +39,7 @@
                     <DataTemplate x:DataType="classes:Maps">
 
                         <StackPanel Orientation="Horizontal" Padding="20">
-                            <Border BorderThickness="3" BorderBrush="Black">
+                            <Border BorderThickness="3" BorderBrush="White">
                                 <Image Stretch="Fill" Height="100" Width="100"  Source="{x:Bind MImage.Source}"/>
                             </Border>
                             <StackPanel Padding="30" VerticalAlignment="Center">
@@ -54,7 +55,7 @@
             <Button Click="GoToBattle_OnClick"
                         x:Name="GoToBattle"
                         Height="50" Width="200"
-                        Margin="30"
+                        Margin="40"
                         Content="Confirm "
                         FontSize="30"
                         Foreground="White"/>
@@ -62,7 +63,7 @@
                     x:Name="ReturnToCharacters" 
                     Content="Back" Height="50" Width="200" 
                     Foreground="White"
-                    Margin="30"
+                    Margin="40"
                     FontSize="30"/>
         </StackPanel>
     </StackPanel>

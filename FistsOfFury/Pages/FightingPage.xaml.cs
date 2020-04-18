@@ -59,7 +59,7 @@ namespace FistsOfFury.Pages
 
             //todo set background to the image selected from ArenaSelection by Justin
             Image image = new Image();
-            image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/fightbackgroundtemp.png", UriKind.RelativeOrAbsolute));
+            image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{ArenaBackgroundImage}", UriKind.RelativeOrAbsolute));
             ArenaBackgroundImage.ImageSource = image.Source;
         }
         private async void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)

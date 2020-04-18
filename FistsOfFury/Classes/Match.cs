@@ -15,7 +15,7 @@ namespace FistsOfFury.Classes
         public Battle Battle { get; set; }
 
         public Image ArenaImage { get; set; }
-
+    
         public Match(Fighter fighterOne, Fighter fighterTwo)
         {
             Stats = new List<FightStats>();
@@ -24,6 +24,7 @@ namespace FistsOfFury.Classes
             Fighters = new List<Fighter>{fighterOne, fighterTwo};
 
             Battle = new Battle(Fighters);
+
         }
     }
 }
