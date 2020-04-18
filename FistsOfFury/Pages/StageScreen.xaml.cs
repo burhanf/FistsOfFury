@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Devices;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -68,10 +69,18 @@ namespace FistsOfFury.Pages
 
         }
 
-        private void GoToBattle_OnClick(object sender, RoutedEventArgs e)
+        private async void GoToBattle_OnClickAsync(object sender, RoutedEventArgs e)
         {
+            if (Stages.SelectedItem == null)
+            {
+                MessageDialog mapError = new MessageDialog("Must Choose a Map!");
+                await mapError.ShowAsync();
+            }
+            else
+            {
+                SetArena();
+            }
 
-            SetArena();
             this.Frame.Navigate(typeof(FightingPage), Match);
         }
 
@@ -80,6 +89,6 @@ namespace FistsOfFury.Pages
             this.Frame.GoBack();
         }
 
-       
+
     }
 }
