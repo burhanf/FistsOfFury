@@ -8,10 +8,12 @@ using Windows.Foundation.Collections;
 using Windows.Media.Devices;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using FistsOfFury.Classes;
 
@@ -44,9 +46,9 @@ namespace FistsOfFury.Pages
             maps.Add(deadPool);
             maps.Add(courtyard);
             maps.Add(thePit);
-            foreach (var Maps in maps)
+            foreach (var map in maps)
             {
-                Stages.Items.Add(maps);
+                Stages.Items.Add(map);
             }
 
         }
@@ -56,11 +58,21 @@ namespace FistsOfFury.Pages
             Match = e.Parameter as Match;
 
             Match.ArenaImage = new Image();
+
         }
-        
+        public void SetArena()
+        {
+            Maps maps = Stages.SelectedItem as Maps;
+
+            Match.ArenaImage = maps.MImage;
+
+        }
+
         private void GoToBattle_OnClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(FightingPage));
+
+            SetArena();
+            this.Frame.Navigate(typeof(FightingPage), Match);
         }
 
         private void ReturnToCharacters_OnClick(object sender, RoutedEventArgs e)
@@ -68,5 +80,6 @@ namespace FistsOfFury.Pages
             this.Frame.GoBack();
         }
 
+       
     }
 }

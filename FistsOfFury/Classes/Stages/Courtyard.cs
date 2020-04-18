@@ -15,9 +15,13 @@ namespace FistsOfFury.Classes
         {
             ImageName = "CourtYard";
 
+            MapsBio =
+                "Shang Tsung's Courtyard, Here, tournaments (including Mortal Kombat tournaments matches) are held where shaolin monks can spectate.";
+
             MImage = new Image();
             MImage.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Maps/CourtYard.png", UriKind.RelativeOrAbsolute));
         }
+
 
     }
 }

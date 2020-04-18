@@ -5,13 +5,15 @@ namespace FistsOfFury.Classes
 {
     public class Battle
     {
-        //Principal Author: Burhan
-        //This class is responsible for performing a fight and calls the appopriate methods from various classes to do so
+        /// <summary>
+        /// Principal Author: Burhan
+        /// This class is responsible for performing a fight and calls the appopriate methods from various classes to do so
+        /// </summary>
         //properties
         public List<Fighter> Fighters { get; }
         public Fighter Attacker { get; private set; }
         public Fighter Opponent { get; private set; }
-        private bool _isGameOver { get; set; }
+        private bool _isGameOver;
         public Fighter Winner { get; private set; }
 
         //constructor
