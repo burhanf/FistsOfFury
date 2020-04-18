@@ -45,7 +45,7 @@ namespace FistsOfFury.Classes
             return _leaderboard.Find(filter).ToList();
         }
 
-        public void testit()
+        public FightStats Deserialize(BsonDocument d)
         {
             return new FightStats(d.GetValue("Name").ToString(), d.GetValue("Score").ToInt32(), d.GetValue("PunchesThrown").ToInt32(), d.GetValue("HighKicksThrown").ToInt32(), d.GetValue("LowKicksThrown").ToInt32(), d.GetValue("PunchesLanded").ToInt32(), d.GetValue("HighKicksLanded").ToInt32(), d.GetValue("LowKicksLanded").ToInt32());
         }
