@@ -16,7 +16,8 @@ namespace FistsOfFury.Classes
             ImageName = "ThePit";
 
             MapsBio =
-                "The Pit lies on Shang Tsung's Island. Kombatants fight on a bridge suspended over a sea of steel spikes, which is the source of death for anyone unlucky enough to be knocked off.";
+                "The Pit lies on Shang Tsung's Island. Kombatants fight on a bridge suspended over a sea of steel spikes, which is the source of death for anyone unlucky enough " +
+                "to be knocked off.";
 
             MImage = new Image();
             MImage.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Maps/ThePit.png", UriKind.RelativeOrAbsolute));

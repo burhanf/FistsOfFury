@@ -58,7 +58,7 @@
             </ListView>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button Click="GoToBattle_OnClick"
+            <Button Click="GoToBattle_OnClickAsync"
                         x:Name="GoToBattle"
                         Height="50" Width="200"
                         Margin="40"
