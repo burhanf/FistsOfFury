@@ -44,13 +44,8 @@ namespace FistsOfFury.Pages
             maps.Add(deadPool);
             maps.Add(courtyard);
             maps.Add(thePit);
-            foreach (var Maps in maps)
-            {
 
-                Stages.Items.Add(maps);
-
-            }
-
+         
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
