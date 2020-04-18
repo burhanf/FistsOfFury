@@ -17,7 +17,7 @@ namespace FistsOfFury.Classes
     {
         public SubZero()
         {
-            Name = "Sub-Zero";
+            FighterName = "Sub-Zero";
             Bio = "Sub-Zero is the leader of the Lin Kuei clan. His bonus move is a low punch which gives him 20 health and inflicts 10 damage.";
 
             //set character icon

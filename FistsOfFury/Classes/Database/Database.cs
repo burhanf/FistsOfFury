@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Bson;
+using Windows.UI.Popups;
+
 
 namespace FistsOfFury.Classes
 {
@@ -14,17 +17,11 @@ namespace FistsOfFury.Classes
         private MongoClient _client { get; }
         private IMongoDatabase _db { get; }
         private IMongoCollection<BsonDocument> _leaderboard { get; set; }
-
         public Database()
         {
             _client = new MongoClient("mongodb+srv://admin:admin@cluster-suzyschema-f4pio.azure.mongodb.net/test?retryWrites=true&w=majority");
             _db = _client.GetDatabase("Fists-Of-Fury");
             _leaderboard = _db.GetCollection<BsonDocument>("Leaderboard");
-        }
-
-        private List<BsonDocument> SortIt()
-        {
-            return new List<BsonDocument>();
         }
          
         public async void LogMatch(Match match)
@@ -37,12 +34,20 @@ namespace FistsOfFury.Classes
 
         public List<BsonDocument> GetLeaderboard()
         {
-            List<BsonDocument> myLeaders = new List<BsonDocument>();
-            foreach (BsonDocument document in _leaderboard.Find(new BsonDocument()).ToList())
-            {
-                myLeaders.Add(document);
-            }
-            return myLeaders;
+            var sort = Builders<BsonDocument>.Sort.Descending("Score");
+            return (_leaderboard.Find(new BsonDocument()).Sort(sort)).ToList();
+
+        }
+
+        public List<BsonDocument> GetUserHistory(string name)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("FighterName", name.ToLower());
+            return _leaderboard.Find(filter).ToList();
+        }
+
+        public FightStats Deserialize(BsonDocument d)
+        {
+            return new FightStats(d.GetValue("FighterName").ToString(), d.GetValue("Score").ToInt32(), d.GetValue("PunchesThrown").ToInt32(), d.GetValue("HighKicksThrown").ToInt32(), d.GetValue("LowKicksThrown").ToInt32(), d.GetValue("PunchesLanded").ToInt32(), d.GetValue("HighKicksLanded").ToInt32(), d.GetValue("LowKicksLanded").ToInt32());
         }
     }
 }

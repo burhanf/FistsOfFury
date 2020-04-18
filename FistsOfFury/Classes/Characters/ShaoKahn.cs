@@ -17,7 +17,7 @@ namespace FistsOfFury.Classes
     {
         public ShaoKahn()
         {
-            Name = "Shao Kahn";
+            FighterName = "Shao Kahn";
             Bio = "Shao Kahn is the ruler of Outworld. His bonus move is a hammer attack which inflicts 40 damage.";
 
             //set character icon

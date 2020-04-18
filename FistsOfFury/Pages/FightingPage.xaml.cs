@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using FistsOfFury.Classes;
 
@@ -46,25 +48,32 @@ namespace FistsOfFury.Pages
             PlayerTwoImage.Source = Match.Fighters[1].Pose.Source;
 
             //set names and initial details
-            FighterOneNameTextBlock.Text = Match.Fighters[0].Name;
-            FighterTwoNameTextBlock.Text = Match.Fighters[1].Name;
+            FighterOneNameTextBlock.Text = Match.Fighters[0].FighterName;
+            FighterTwoNameTextBlock.Text = Match.Fighters[1].FighterName;
 
-            //todo this must be replaced with the player's name
-            PlayerOneNameTextBlock.Text = Match.Fighters[0].Name;
-            PlayerTwoNameTextBlock.Text = Match.Fighters[1].Name;
-
-            //todo set background to the image selected from ArenaSelection
+            //todo this must be replaced with the player's name from Marco
+            PlayerOneTextBlock.Text = Match.Fighters[0].FighterName;
+            PlayerTwoTextBlock.Text = Match.Fighters[1].FighterName;
 
             UpdateHealthAndScoreTextBlocks();
+
+            //todo set background to the image selected from ArenaSelection by Justin
+            Image image = new Image();
+            image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/fightbackgroundtemp.png", UriKind.RelativeOrAbsolute));
+            ArenaBackgroundImage.ImageSource = image.Source;
         }
-        private void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)
+        private async void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)
         {
             //check if there's a winner to display
             if (Match.Battle.Winner != null)
             {
-                //todo Go to next page fight statistics screen
-                MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.Name}!\nPunch Accuracy: {Match.Battle.Winner.PlayerStats.PunchAccuracy}%\nLow Kick Accuracy: {Match.Battle.Winner.PlayerStats.LowKickAccuracy}%\nHigh Kick Accuracy: {Match.Battle.Winner.PlayerStats.HighKickAccuracy}%");
-                dialog.ShowAsync();
+                //todo if there's a winner, call methods to calculate stats and Go to next page which is Marco's fight statistics screen
+                Match.Battle.Winner.PlayerStats.CalculatePunchAccuracy();
+                Match.Battle.Winner.PlayerStats.CalculateLowKickAccuracy();
+                Match.Battle.Winner.PlayerStats.CalculateHighKickAccuracy();
+
+                MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.FighterName}!");
+                await dialog.ShowAsync();
             }
             else
             {
@@ -74,7 +83,7 @@ namespace FistsOfFury.Pages
                 List<int> dieResults = Match.Battle.DetermineAttacker();
 
                 //set returned values from list to textblocks
-                AttackerTextBlock.Text = $"The attacker is {Match.Battle.Attacker.Name}";
+                AttackerTextBlock.Text = $"The attacker is {Match.Battle.Attacker.FighterName}";
                 PlayerOneSumTextBlock.Text = $"{dieResults[0]}";
                 PlayerTwoSumTextBlock.Text = $"{dieResults[1]}";
 
@@ -104,13 +113,13 @@ namespace FistsOfFury.Pages
             PlayerTwoScoreTextBlock.Text = $"Score: {Match.Fighters[1].Score}";
         }
 
-        private void DisplayMissedAttackPrompt()
+        private async void DisplayMissedAttackPrompt()
         {
             //if the fighter has attempted an attack and missed, notify the player
             if (Match.Battle.Attacker.IsAttackMissed)
             {
                 MessageDialog dialog = new MessageDialog("Missed!");
-                dialog.ShowAsync();
+                await dialog.ShowAsync();
             }
         }
 
@@ -241,7 +250,7 @@ namespace FistsOfFury.Pages
                 DetermineAttackerButton.Content = "See Winner Details";
 
                 //change the attacker text to display the winner's name
-                AttackerTextBlock.Text = $"The winner is {Match.Battle.Winner.Name}!";
+                AttackerTextBlock.Text = $"The Winner Is {Match.Battle.Winner.FighterName}!";
             }
         }
 

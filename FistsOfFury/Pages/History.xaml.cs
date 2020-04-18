@@ -13,7 +13,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using FistsOfFury.Classes;
-using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,15 +21,15 @@ namespace FistsOfFury.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Leaderboard : Page, IDatabase
+    public sealed partial class History : Page, IDatabase
     {
-        public Database Database { get; set; }
-        public Leaderboard()
+        public Database Database { get; set;  }
+        public History()
         {
             this.InitializeComponent();
-            foreach (var item in Database.GetLeaderboard())
+            foreach (var item in Database.GetUserHistory(playerName.Text))
             {
-                leaderboard.Items.Add(Database.Deserialize(item));
+                myListView.Items.Add(Database.Deserialize(item));
             }
         }
 
@@ -38,6 +37,7 @@ namespace FistsOfFury.Pages
         {
             base.OnNavigatedTo(e);
             Database = (Database)e.Parameter;
+
         }
     }
 }

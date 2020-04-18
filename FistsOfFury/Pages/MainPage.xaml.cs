@@ -1,6 +1,7 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using FistsOfFury.Classes;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -15,11 +16,19 @@ namespace FistsOfFury.Pages
 
     {
         Database Database { get; }
-        
+
+
         public MainPage()
         {
             this.InitializeComponent();
             Database = new Database();
+            //var x = new MessageDialog("");
+            //foreach (var document in Database.GetLeaderboard())
+            //{
+            //    x.Title=document.GetValue("FighterName").ToString();
+            //    x.ShowAsync();
+            //}
+            
         }
 
         private void PlayButton_OnClick(object sender, RoutedEventArgs e)
@@ -31,6 +40,11 @@ namespace FistsOfFury.Pages
         private void LeaderboardButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Leaderboard), Database);
+        }
+
+        private void HistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(History), Database);
         }
     }
 }

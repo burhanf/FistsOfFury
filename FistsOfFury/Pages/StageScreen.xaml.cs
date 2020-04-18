@@ -44,9 +44,13 @@ namespace FistsOfFury.Pages
             maps.Add(deadPool);
             maps.Add(courtyard);
             maps.Add(thePit);
-
+            foreach (var map in maps)
+            {
+                Stages.Items.Add(map);
+            }
 
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Match = e.Parameter as Match;
@@ -56,7 +60,7 @@ namespace FistsOfFury.Pages
         
         private void GoToBattle_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            this.Frame.Navigate(typeof(FightingPage), Match);
         }
 
         private void ReturnToCharacters_OnClick(object sender, RoutedEventArgs e)

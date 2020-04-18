@@ -14,13 +14,13 @@ namespace FistsOfFury.Classes
     /// </summary>
     public abstract class Fighter
     {
-        public string Name { get; protected set; }
+        public string FighterName { get; protected set; }
         public string Bio { get; protected set; }
         public int Health { get; protected set; }
         public int Score { get; protected set; }
 
         //stats
-        public FightStats PlayerStats { get; }
+        public FightStats PlayerStats { get; set; }
 
         //images
         public Image IconImage { get; set; }
@@ -34,6 +34,7 @@ namespace FistsOfFury.Classes
         public Fighter()
         {
             Health = 100;
+            //todo took out name as its supposed to be user's name
             PlayerStats = new FightStats();
 
             Pose = new Image();
