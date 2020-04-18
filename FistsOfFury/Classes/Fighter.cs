@@ -34,7 +34,7 @@ namespace FistsOfFury.Classes
         public Fighter()
         {
             Health = 100;
-            PlayerStats = new FightStats();
+            PlayerStats = new FightStats(Name);
 
             Pose = new Image();
             ImageSet = new List<Image>();

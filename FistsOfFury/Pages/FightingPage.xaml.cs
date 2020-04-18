@@ -57,14 +57,14 @@ namespace FistsOfFury.Pages
 
             UpdateHealthAndScoreTextBlocks();
         }
-        private void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)
+        private async void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)
         {
             //check if there's a winner to display
             if (Match.Battle.Winner != null)
             {
                 //todo Go to next page fight statistics screen
                 MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.Name}!\nPunch Accuracy: {Match.Battle.Winner.PlayerStats.PunchAccuracy}%\nLow Kick Accuracy: {Match.Battle.Winner.PlayerStats.LowKickAccuracy}%\nHigh Kick Accuracy: {Match.Battle.Winner.PlayerStats.HighKickAccuracy}%");
-                dialog.ShowAsync();
+                await dialog.ShowAsync();
             }
             else
             {
@@ -104,13 +104,13 @@ namespace FistsOfFury.Pages
             PlayerTwoScoreTextBlock.Text = $"Score: {Match.Fighters[1].Score}";
         }
 
-        private void DisplayMissedAttackPrompt()
+        private async void DisplayMissedAttackPrompt()
         {
             //if the fighter has attempted an attack and missed, notify the player
             if (Match.Battle.Attacker.IsAttackMissed)
             {
                 MessageDialog dialog = new MessageDialog("Missed!");
-                dialog.ShowAsync();
+                await dialog.ShowAsync();
             }
         }
 

@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="FistsOfFury.Pages.History"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FistsOfFury.Classes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid
+        Margin="100">
+
+        <StackPanel>
+            <TextBox 
+                x:Name="playerName" 
+                Text="Enter Player Name"/>
+            <ListView
+                x:Name="myListView"
+                Margin="120, 0, 0, 60"
+                ItemsSource="">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:FightStats">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="100" Height="200" Fill="LightGray"/>
+                            <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
+                            <StackPanel>
+                                <TextBlock Text="{x:Bind PunchAccuracy}"/>
+                                <TextBlock Text="{x:Bind HighKickAccuracy}"/>
+                                <TextBlock Text="{x:Bind LowKickAccuracy}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
