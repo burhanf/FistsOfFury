@@ -43,31 +43,39 @@ namespace FistsOfFury.Classes
                 }
             }
         }
+
+        private double _lowKickAccuracy;
         public double LowKickAccuracy
         {
             get
             {
                 if (LowKicksThrown != 0)
                 {
-                    return LowKicksLanded / LowKicksThrown * 100;
+                    _lowKickAccuracy = LowKicksLanded / LowKicksThrown * 100;
+                    return _lowKickAccuracy;
                 }
                 else
                 {
-                    return 0;
+                    _lowKickAccuracy = 0;
+                    return _lowKickAccuracy;
                 }
             }
         }
+
+        private double _highKickAccuracy;
         public double HighKickAccuracy
         {
             get
             {
                 if (HighKicksThrown != 0)
                 {
-                    return HighKicksLanded / HighKicksThrown * 100;
+                    _highKickAccuracy = HighKicksLanded / HighKicksThrown * 100;
+                    return _highKickAccuracy;
                 }
                 else
                 {
-                    return 0;
+                    _highKickAccuracy = 0;
+                    return _highKickAccuracy;
                 }
             }
         }

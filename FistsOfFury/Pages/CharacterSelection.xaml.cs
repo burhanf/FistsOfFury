@@ -47,7 +47,7 @@ namespace FistsOfFury.Pages
             SubZero subZeroPlayerOne = new SubZero { IsPlayerOne = true };
             ShaoKahn shaoKahnPlayerOne = new ShaoKahn { IsPlayerOne = true };
 
-            //Fighters that have images for when they are on the left/player1
+            //Fighters that have images for when they are on the right/player2
             Scorpion scorpionPlayerTwo = new Scorpion { IsPlayerOne = false };
             SubZero subZeroPlayerTwo = new SubZero { IsPlayerOne = false };
             ShaoKahn shaoKahnPlayerTwo = new ShaoKahn { IsPlayerOne = false };

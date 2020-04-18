@@ -54,6 +54,7 @@ namespace FistsOfFury.Pages
             PlayerTwoNameTextBlock.Text = Match.Fighters[1].Name;
 
             //todo set background to the image selected from ArenaSelection
+            background.ImageSource = Match.ArenaImage.Source;
 
             UpdateHealthAndScoreTextBlocks();
         }

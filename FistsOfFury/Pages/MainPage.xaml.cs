@@ -16,9 +16,10 @@ namespace FistsOfFury.Pages
     {
         Database Database { get; }
 
-        
+
         public MainPage()
         {
+            this.InitializeComponent();
             Database = new Database();
         }
 
