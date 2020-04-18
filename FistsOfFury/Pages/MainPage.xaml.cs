@@ -20,15 +20,7 @@ namespace FistsOfFury.Pages
         
         public MainPage()
         {
-            this.InitializeComponent();
             Database = new Database();
-            var x = new MessageDialog("");
-            foreach (var document in Database.GetLeaderboard())
-            {
-                x.Title=document.GetValue("Name").ToString();
-                x.ShowAsync();
-            }
-            
         }
 
         private void PlayButton_OnClick(object sender, RoutedEventArgs e)
