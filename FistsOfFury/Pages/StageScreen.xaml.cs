@@ -46,11 +46,12 @@ namespace FistsOfFury.Pages
             maps.Add(thePit);
             foreach (var Maps in maps)
             {
+
                 Stages.Items.Add(maps);
+
             }
 
         }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Match = e.Parameter as Match;
