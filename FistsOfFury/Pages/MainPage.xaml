@@ -47,9 +47,10 @@
                     Content="View Leaderboard"/>
 
             <Button 
-                    x:Name="HistoryButton"
-                    Style="{StaticResource ButtonsStyle}"
-                    Content="View Player History"/>
+                x:Name="HistoryButton"
+                Style="{StaticResource ButtonsStyle}"
+                Content="View Player History"
+                Click="HistoryButton_Click"/>
         </StackPanel>
 
 

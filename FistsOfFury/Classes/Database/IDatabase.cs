@@ -8,8 +8,6 @@ namespace FistsOfFury.Classes
 {
     interface IDatabase
     {
-        Database Database { get; set; }
-
-
+        Database Database { get; }
     }
 }

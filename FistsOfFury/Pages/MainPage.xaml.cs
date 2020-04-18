@@ -14,10 +14,10 @@ namespace FistsOfFury.Pages
     //This class is just a main menu that navigates to requested page
     {
         Database Database { get; }
+
         
         public MainPage()
         {
-            this.InitializeComponent();
             Database = new Database();
         }
 
@@ -30,6 +30,11 @@ namespace FistsOfFury.Pages
         private void LeaderboardButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Leaderboard), Database);
+        }
+
+        private void HistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
