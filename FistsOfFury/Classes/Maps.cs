@@ -12,7 +12,6 @@ namespace FistsOfFury.Classes
     abstract class Maps
     {
         public string ImageName { get; set; }
-
         public Image MImage { get; set; }
 
     }

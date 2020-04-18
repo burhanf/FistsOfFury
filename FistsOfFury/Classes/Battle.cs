@@ -11,7 +11,7 @@ namespace FistsOfFury.Classes
         public List<Fighter> Fighters { get; }
         public Fighter Attacker { get; private set; }
         public Fighter Opponent { get; private set; }
-        private bool _isGameOver;
+        private bool _isGameOver { get; set; }
         public Fighter Winner { get; private set; }
 
         //constructor

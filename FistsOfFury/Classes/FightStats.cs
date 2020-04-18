@@ -13,12 +13,31 @@ namespace FistsOfFury.Classes
 
     public class FightStats
     {
-        public double PunchesThrown { get; private set; }
-        public double HighKicksThrown { get; private set; }
-        public double LowKicksThrown { get; private set; }
-        public double PunchesLanded { get; private set; }
-        public double HighKicksLanded { get; private set; }
-        public double LowKicksLanded { get; private set; }
+        public FightStats() { }
+        public FightStats(string name)
+        {
+            Name = name.ToLower();
+        }
+        public FightStats(string name, int score, int punchesThrown, int highKicksThrown, int lowKicksThrown, int punchesLanded, int highKicksLanded, int lowKicksLanded) : this(name)
+        {
+            Name = name.ToLower();
+            Score = score;
+            PunchesThrown = punchesThrown;
+            HighKicksThrown = highKicksThrown;
+            LowKicksThrown = lowKicksThrown;
+            PunchesLanded = punchesLanded;
+            HighKicksLanded = highKicksLanded;
+            LowKicksLanded = lowKicksLanded;
+        }
+
+        public String Name { get; private set; }
+        public int Score { get; private set; }
+        public int PunchesThrown { get; private set; }
+        public int HighKicksThrown { get; private set; }
+        public int LowKicksThrown { get; private set; }
+        public int PunchesLanded { get; private set; }
+        public int HighKicksLanded { get; private set; }
+        public int LowKicksLanded { get; private set; }
         //todo is a private variable required to be declared for this property that has a calculated getter?
         //calculation is done in getter
         //public double PunchAccuracy{get { PunchesThrown <= 0 ?return PunchesLanded / PunchesThrown:return 0;}}

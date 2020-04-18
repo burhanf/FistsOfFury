@@ -65,36 +65,36 @@ namespace FistsOfFury.Pages
             }
         }
 
-        private void ConfirmCharacterButton_OnClick(object sender, RoutedEventArgs e)
+        private async void ConfirmCharacterButton_OnClick(object sender, RoutedEventArgs e)
         {
             //check if name is the same for both players. Should be unique names (case sensitive)
             if (PlayerOneNameTextBlock.Text == PlayerTwoNameTextBlock.Text ||
                 PlayerTwoNameTextBlock.Text == PlayerOneNameTextBlock.Text)
             {
                 MessageDialog message = new MessageDialog("Both players cannot have the same username. Please enter different usernames. (Case sensitive)");
-                message.ShowAsync();
+                await message.ShowAsync();
             }
             else if (string.IsNullOrEmpty(PlayerOneNameTextBlock.Text))
             {
                 MessageDialog message = new MessageDialog("Player 1 must enter a username");
-                message.ShowAsync();
+                await message.ShowAsync();
             }
             else if (string.IsNullOrEmpty(PlayerTwoNameTextBlock.Text))
             {
                 MessageDialog message = new MessageDialog("Player 2 must enter a username");
-                message.ShowAsync();
+                await message.ShowAsync();
             }
 
             //check if a character choice is selected for player1, player2
             else if (PlayerOneListView.SelectedItem == null)
             {
                 MessageDialog message = new MessageDialog("Player 1 must choose a character");
-                message.ShowAsync();
+                await message.ShowAsync();
             }
             else if (PlayerTwoListView.SelectedItem == null)
             {
                 MessageDialog message = new MessageDialog("Player 2 must choose a character");
-                message.ShowAsync();
+                await message.ShowAsync();
             }
             else
             {
