@@ -80,6 +80,6 @@ namespace FistsOfFury.Pages
             this.Frame.GoBack();
         }
 
-
+       
     }
 }
