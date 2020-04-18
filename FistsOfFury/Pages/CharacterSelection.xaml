@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <!--Principal Author: Burhan-->
-    <!--This page allows 2 players to choose thier characters-->
+    <!--This page allows 2 players to choose their characters-->
 
     <Page.Resources>
         <!--Style for character info-->

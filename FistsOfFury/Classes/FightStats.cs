@@ -32,6 +32,7 @@ namespace FistsOfFury.Classes
             LowKicksLanded = lowKicksLanded;
         }
 
+        //todo should be PlayerName
         public String Name { get; private set; }
         public int Score { get; private set; }
         //Burhan:
