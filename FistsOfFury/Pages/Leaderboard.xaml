@@ -9,22 +9,30 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <ListView
-            x:Name="leaderboard"
-                Margin="100, 100"
-                ItemsSource="">
-        <ListView.ItemTemplate>
-            <DataTemplate x:DataType="local:FightStats">
-                <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="100" Height="200" Fill="LightGray"/>
-                    <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
-                    <StackPanel>
-                        <TextBlock Text="{x:Bind Score}"/>
+        <StackPanel>
+            <Button
+                x:Name="Refresh"
+                HorizontalAlignment="Center"
+                Click="Refresh_Click"
+                Content="Refresh"
+                />
+            <ListView
+                x:Name="leaderboard"
+                    Margin="100, 100"
+                    ItemsSource="">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:FightStats">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="100" Height="200" Fill="LightGray"/>
+                        <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind Score}"/>
 
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-        </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>

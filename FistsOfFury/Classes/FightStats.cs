@@ -20,10 +20,9 @@ namespace FistsOfFury.Classes
         {
             Name = name.ToLower();
         }
-        public FightStats(string name, int score, int punchesThrown, int highKicksThrown, int lowKicksThrown, int punchesLanded, int highKicksLanded, int lowKicksLanded) : this(name)
+        public FightStats(string name, int punchesThrown, int highKicksThrown, int lowKicksThrown, int punchesLanded, int highKicksLanded, int lowKicksLanded) : this(name)
         {
             Name = name.ToLower();
-            Score = score;
             PunchesThrown = punchesThrown;
             HighKicksThrown = highKicksThrown;
             LowKicksThrown = lowKicksThrown;
@@ -33,7 +32,7 @@ namespace FistsOfFury.Classes
         }
 
         //todo should be PlayerName
-        public String Name { get; private set; }
+        public String Name { get; set; }
         public int Score { get; private set; }
         //Burhan:
         public int PunchesThrown { get; private set; }

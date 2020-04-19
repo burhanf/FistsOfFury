@@ -21,30 +21,36 @@ namespace FistsOfFury.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class History : Page, IDatabase
+    public sealed partial class Postmatch : Page, IDatabase 
     {
-        public Database Database { get; set;  }
-        public History()
+        public Database Database { get; set; }
+        public Match Match { get; private set; }
+        public Postmatch()
         {
             this.InitializeComponent();
             Database = new Database();
-            foreach (var item in Database.GetUserHistory(playerName.Text))
+            foreach (var i in Match.Fighters)
             {
-                myListView.Items.Add(Database.Deserialize(item));
+                myListView.Items.Add(i);
             }
-
+            
         }
 
-        private void Refresh_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
-
+            Database.LogMatch(Match);
         }
 
-        //protected override void OnNavigatedTo(NavigationEventArgs e)
-        //{
-        //    base.OnNavigatedTo(e);
-        //    Database = (Database)e.Parameter;
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
 
-        //}
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            Match = e.Parameter as Match;
+            
+        }
     }
 }

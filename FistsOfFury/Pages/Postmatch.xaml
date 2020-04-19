@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="FistsOfFury.Pages.Postmatch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FistsOfFury.Classes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid
+        Margin="100">
+        
+        <TextBlock 
+            Text="Winner"
+            FontWeight="Bold"
+            FontSize="25"/>
+        <StackPanel
+            Orientation="Horizontal">
+            <Button
+                x:Name="Save"
+                Click="Save_Click"
+                Content="Save"/>
+            <Button
+                x:Name="Home"
+                Click="Home_Click"
+                Content="Home"/>
+        </StackPanel>
+
+        <ListView
+                x:Name="myListView"
+                Margin="120, 0, 0, 60"
+                ItemsSource="">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Fighter">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="100" Height="200" Fill="LightGray"/>
+                        <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind FighterName}"/>
+                            <TextBlock Text="{x:Bind PlayerStats.PunchAccuracy}"/>
+                            <TextBlock Text="{x:Bind PlayerStats.LowKickAccuracy}"/>
+                            <TextBlock Text="{x:Bind PlayerStats.HighKickAccuracy}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+    </Grid>
+</Page>

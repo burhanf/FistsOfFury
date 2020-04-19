@@ -12,6 +12,11 @@
         Margin="100">
 
         <StackPanel>
+            <Button
+                x:Name="Refresh"
+                HorizontalAlignment="Center"
+                Click="Refresh_Click"
+                Content="Refresh"/>
             <TextBox 
                 x:Name="playerName" 
                 Text="Enter Player Name"/>

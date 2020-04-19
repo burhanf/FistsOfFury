@@ -28,16 +28,17 @@ namespace FistsOfFury.Pages
         public Leaderboard()
         {
             this.InitializeComponent();
+            Database = new Database();
+
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
             foreach (var item in Database.GetLeaderboard())
             {
                 leaderboard.Items.Add(Database.Deserialize(item));
             }
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            Database = (Database)e.Parameter;
-        }
     }
 }
+

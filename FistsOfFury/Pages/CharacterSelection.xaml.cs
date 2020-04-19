@@ -114,8 +114,10 @@ namespace FistsOfFury.Pages
 
             //create objects from user's choice
             Fighter fighterOne = PlayerOneListView.SelectedItem as Fighter;
+            fighterOne.PlayerStats.Name = PlayerOneNameTextBlock.Text;
 
             Fighter fighterTwo = PlayerTwoListView.SelectedItem as Fighter;
+            fighterTwo.PlayerStats.Name = PlayerTwoNameTextBlock.Text;
 
             //send these to Fighting Screen as an object of Match
             Match match = new Match(fighterOne, fighterTwo);

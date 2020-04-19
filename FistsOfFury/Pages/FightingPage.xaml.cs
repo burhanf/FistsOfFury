@@ -50,6 +50,7 @@ namespace FistsOfFury.Pages
             //set names and initial details
             FighterOneNameTextBlock.Text = Match.Fighters[0].FighterName;
             FighterTwoNameTextBlock.Text = Match.Fighters[1].FighterName;
+            
 
             //todo this must be replaced with the player's name from Marco
             PlayerOneTextBlock.Text = Match.Fighters[0].FighterName;
@@ -72,8 +73,7 @@ namespace FistsOfFury.Pages
                 Match.Battle.Winner.PlayerStats.CalculateLowKickAccuracy();
                 Match.Battle.Winner.PlayerStats.CalculateHighKickAccuracy();
 
-                MessageDialog dialog = new MessageDialog($"The winner is {Match.Battle.Winner.FighterName}!");
-                await dialog.ShowAsync();
+                this.Frame.Navigate(typeof(Postmatch), Match);
             }
             else
             {

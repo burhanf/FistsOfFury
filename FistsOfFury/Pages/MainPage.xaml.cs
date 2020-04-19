@@ -22,29 +22,22 @@ namespace FistsOfFury.Pages
         {
             this.InitializeComponent();
             Database = new Database();
-            var x = new MessageDialog("");
-            foreach (var document in Database.GetLeaderboard())
-            {
-                x.Title = document.GetValue("Name").ToString();
-                x.ShowAsync();
-            }
-
         }
 
         private void PlayButton_OnClick(object sender, RoutedEventArgs e)
         {
             //go to the character selection screen
-            this.Frame.Navigate(typeof(CharacterSelection), Database);
+            this.Frame.Navigate(typeof(CharacterSelection));
         }
 
         private void LeaderboardButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Leaderboard), Database);
+            this.Frame.Navigate(typeof(Leaderboard));
         }
 
         private void HistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(History), Database);
+            this.Frame.Navigate(typeof(History));
         }
     }
 }
