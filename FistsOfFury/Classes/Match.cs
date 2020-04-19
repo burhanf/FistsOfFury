@@ -8,6 +8,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace FistsOfFury.Classes
 {
+
     public class Match
     {
         public List<FightStats> Stats { get; }
@@ -20,7 +21,7 @@ namespace FistsOfFury.Classes
         {
             Stats = new List<FightStats>();
 
-            //burhans stuff for battle
+            //Burhans work for battle
             Fighters = new List<Fighter>{fighterOne, fighterTwo};
 
             Battle = new Battle(Fighters);
