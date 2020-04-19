@@ -34,7 +34,6 @@ namespace FistsOfFury.Classes
         public Fighter()
         {
             Health = 100;
-            //todo took out name as its supposed to be user's name
             PlayerStats = new FightStats();
 
             Pose = new Image();

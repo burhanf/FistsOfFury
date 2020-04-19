@@ -110,8 +110,6 @@ namespace FistsOfFury.Pages
 
         private void CreateFighters()
         {
-            //todo must use username to create PLAYER/USER
-
             //create objects from user's choice
             Fighter fighterOne = PlayerOneListView.SelectedItem as Fighter;
             fighterOne.PlayerStats.Name = PlayerOneNameTextBlock.Text;
