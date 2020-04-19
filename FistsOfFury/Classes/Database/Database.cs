@@ -35,8 +35,7 @@ namespace FistsOfFury.Classes
         public List<BsonDocument> GetLeaderboard()
         {
             var sort = Builders<BsonDocument>.Sort.Descending("Score");
-            return (_leaderboard.Find(new BsonDocument()).Sort(sort)).ToList();
-
+            return _leaderboard.Find(new BsonDocument()).Sort(sort).ToList();
         }
 
         public List<BsonDocument> GetUserHistory(string name)
@@ -48,7 +47,7 @@ namespace FistsOfFury.Classes
 
         public FightStats Deserialize(BsonDocument d)
         {
-            return new FightStats(d.GetValue("FighterName").ToString(), d.GetValue("Score").ToInt32(), d.GetValue("PunchesThrown").ToInt32(), d.GetValue("HighKicksThrown").ToInt32(), d.GetValue("LowKicksThrown").ToInt32(), d.GetValue("PunchesLanded").ToInt32(), d.GetValue("HighKicksLanded").ToInt32(), d.GetValue("LowKicksLanded").ToInt32());
+            return new FightStats(d.GetValue("Name").ToString(), d.GetValue("Score").ToInt32(), d.GetValue("PunchesThrown").ToInt32(), d.GetValue("HighKicksThrown").ToInt32(), d.GetValue("LowKicksThrown").ToInt32(), d.GetValue("PunchesLanded").ToInt32(), d.GetValue("HighKicksLanded").ToInt32(), d.GetValue("LowKicksLanded").ToInt32());
         }
     }
 }
