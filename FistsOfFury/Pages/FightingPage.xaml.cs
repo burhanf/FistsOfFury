@@ -53,14 +53,11 @@ namespace FistsOfFury.Pages
             
 
             //todo this must be replaced with the player's name from Marco
-            PlayerOneTextBlock.Text = Match.Fighters[0].FighterName;
-            PlayerTwoTextBlock.Text = Match.Fighters[1].FighterName;
+            PlayerOneTextBlock.Text = "Player 1";
+            PlayerTwoTextBlock.Text = "Player 2";
 
             UpdateHealthAndScoreTextBlocks();
 
-            //todo set background to the image selected from ArenaSelection by Justin
-            //Image image = new Image();
-            //image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/fightbackgroundtemp.png", UriKind.RelativeOrAbsolute));
             ArenaBackgroundImage.ImageSource = Match.ArenaImage.Source;
         }
         private async void DetermineAttackerButton_OnClick(object sender, RoutedEventArgs e)
@@ -68,7 +65,7 @@ namespace FistsOfFury.Pages
             //check if there's a winner to display
             if (Match.Battle.Winner != null)
             {
-                //todo if there's a winner, call methods to calculate stats and Go to next page which is Marco's fight statistics screen
+                //if there's a winner, call methods to calculate stats and Go to next page which is Marco's fight statistics screen
                 Match.Battle.Winner.PlayerStats.CalculatePunchAccuracy();
                 Match.Battle.Winner.PlayerStats.CalculateLowKickAccuracy();
                 Match.Battle.Winner.PlayerStats.CalculateHighKickAccuracy();
@@ -87,14 +84,14 @@ namespace FistsOfFury.Pages
                 PlayerOneSumTextBlock.Text = $"{dieResults[0]}";
                 PlayerTwoSumTextBlock.Text = $"{dieResults[1]}";
 
-                //allow player to view attack's
+                //allow player to view attacks
                 AttackMenuButton.IsEnabled = true;
             }
 
         }
         private async void ChangeImage(Image playerImage)
         {
-            //changes the appopriate image control
+            //changes the appropriate image control
 
             playerImage.Source = Match.Battle.Attacker.Pose.Source;
             //wait and set back to default

@@ -7,7 +7,7 @@ namespace FistsOfFury.Classes
     {
         /// <summary>
         /// Principal Author: Burhan
-        /// This class is responsible for performing a fight and calls the appopriate methods from various classes to do so
+        /// This class is responsible for performing a fight and calls the appropriate methods from various classes to do so
         /// </summary>
         //properties
         public List<Fighter> Fighters { get; }

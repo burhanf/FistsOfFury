@@ -35,7 +35,7 @@
                 <DataTemplate x:DataType="local:Fighter">
                     <StackPanel Orientation="Horizontal">
                         <Rectangle Width="100" Height="200" Fill="LightGray"/>
-                        <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
+                        <TextBlock Text="{x:Bind FighterName}" FontWeight="Bold"/>
                         <StackPanel>
                             <TextBlock Text="{x:Bind FighterName}"/>
                             <TextBlock Text="{x:Bind PlayerStats.PunchAccuracy}"/>
