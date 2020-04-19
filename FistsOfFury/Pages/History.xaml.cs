@@ -28,16 +28,21 @@ namespace FistsOfFury.Pages
         {
             this.InitializeComponent();
             Database = new Database();
-            foreach (var item in Database.GetUserHistory(playerName.Text))
-            {
-                myListView.Items.Add(Database.Deserialize(item));
-            }
+
 
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var item in Database.GetUserHistory(playerName.Text))
+            {
+                myListView.Items.Add(Database.Deserialize(item));
+            }
+        }
 
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
         }
 
         //protected override void OnNavigatedTo(NavigationEventArgs e)

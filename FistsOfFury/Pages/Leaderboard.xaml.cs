@@ -39,6 +39,11 @@ namespace FistsOfFury.Pages
                 leaderboard.Items.Add(Database.Deserialize(item));
             }
         }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
+        }
     }
 }
 

@@ -17,6 +17,9 @@
                 HorizontalAlignment="Center"
                 Click="Refresh_Click"
                 Content="Refresh"/>
+            <Button x:Name="back"
+                    Click="back_Click"
+                    Content="Back"/>
             <TextBox 
                 x:Name="playerName" 
                 Text="Enter Player Name"/>

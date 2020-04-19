@@ -8,13 +8,19 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid
+        Margin="100">
         <StackPanel>
             <Button
                 x:Name="Refresh"
                 HorizontalAlignment="Center"
                 Click="Refresh_Click"
                 Content="Refresh"
+                />
+            <Button
+                x:Name="back"
+                Content="Back"
+                Click="back_Click"
                 />
             <ListView
                 x:Name="leaderboard"
